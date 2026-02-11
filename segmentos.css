@@ -119,7 +119,11 @@ h1 {
 
 .descripcion {
     text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.6;
 }
+
 
 
 

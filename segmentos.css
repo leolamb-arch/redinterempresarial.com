@@ -1,27 +1,17 @@
-body { 
-    font-family: Inter, sans-serif; background-color: rgb(255, 255, 255); margin: 28px; 
-} 
-
-h1.serviciosdd {
-     color: rgb(182, 153, 100); font-size: 20px; 
-} 
-
-h3.serviciosdd { 
-    color: rgb(128, 104, 61); font-size: 15px;
-} 
 /* ================================
-   BASE
+   RESET / BASE GLOBAL
 ================================ */
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     min-height: 100vh;
-    margin: 0;
     padding: 64px 24px;
 
-    font-family: Inter, system-ui, sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
     text-align: center;
     color: #e5e7eb;
 
@@ -39,9 +29,21 @@ body {
         );
 }
 
+/* ================================
+   TITULOS PERSONALIZADOS
+================================ */
+h1.serviciosdd {
+    color: rgb(182, 153, 100);
+    font-size: 20px;
+}
+
+h3.serviciosdd {
+    color: rgb(128, 104, 61);
+    font-size: 15px;
+}
 
 /* ================================
-   CONTENEDOR
+   CONTENEDOR PRINCIPAL
 ================================ */
 .contenedor {
     max-width: 720px;
@@ -83,7 +85,7 @@ body {
 }
 
 /* ================================
-   TÍTULO
+   TITULO GENERAL
 ================================ */
 h1 {
     margin-bottom: 22px;
@@ -93,16 +95,81 @@ h1 {
 }
 
 /* ================================
-   TEXTO
+   SECCION VISION (FONDO DINAMICO)
 ================================ */
-.descripcion {
-    font-size: 16px;
-    line-height: 1.8;
-    color: #374151;
+.vision-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+
+    background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1b2735);
+    background-size: 400% 400%;
+    animation: fondoAnimado 12s ease infinite;
+}
+
+@keyframes fondoAnimado {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* ================================
-   ANIMACIONES
+   CAJA GLASS PREMIUM
+================================ */
+.vision-box {
+    max-width: 950px;
+    padding: 50px;
+    border-radius: 20px;
+
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.05);
+
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.15);
+
+    animation: aparecer 1.2s ease forwards, glow 4s infinite alternate;
+    transform: translateY(30px);
+    opacity: 0;
+}
+
+@keyframes aparecer {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    }
+    to {
+        box-shadow: 0 0 45px rgba(0, 255, 255, 0.5);
+    }
+}
+
+/* ================================
+   TEXTO DESCRIPCION
+================================ */
+.descripcion {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+
+    font-size: 1.15rem;
+    line-height: 1.8;
+    font-weight: 400;
+    color: #ffffff;
+}
+
+.descripcion strong {
+    color: #00ffff;
+    text-shadow: 0 0 10px rgba(0,255,255,0.7);
+}
+
+/* ================================
+   ANIMACION SCROLL
 ================================ */
 .animar {
     opacity: 0;
@@ -117,12 +184,8 @@ h1 {
     transform: translateY(0);
 }
 
-.descripcion {
-    text-align: center;
-    max-width: 900px;
-    margin: 0 auto;
-    line-height: 1.6;
-}
+
+
 
 
 

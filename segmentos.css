@@ -116,7 +116,84 @@ h1 {
     transform: translateY(0);
 }
 
-.descripcion {
-    text-align: justify;
+/* ================================
+   CENTRADO GENERAL
+================================ */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0b1a33, #081225);
+    color: #e5e7eb;
 }
+
+/* ================================
+   SECCIÓN CENTRADA
+================================ */
+.vision-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* ================================
+   CUADRO PROFESIONAL ANIMADO
+================================ */
+.vision-card {
+    max-width: 800px;
+    padding: 50px;
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+
+    text-align: center;
+
+    animation: aparecer 1s ease forwards,
+               flotar 5s ease-in-out infinite;
+}
+
+/* ================================
+   TITULO
+================================ */
+h1.serviciosdd {
+    color: #d4af37;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+/* ================================
+   TEXTO
+================================ */
+.descripcion {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #cbd5e1;
+}
+
+/* ================================
+   ANIMACIONES
+================================ */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes flotar {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+}
+
+
 

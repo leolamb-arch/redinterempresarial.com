@@ -64,33 +64,30 @@
         </ul>
 
         <!-- FORMULARIO -->
-        <form>
+        <form id="contacto">
             
             <div class="campo animar">
-                <input type="text" placeholder="Nombre completo" required>
+                <input type="text" name="nombre" placeholder="Nombre completo" required>
             </div>
 
             <div class="campo animar">
-                <input type="email" placeholder="Correo electrónico" required>
+                <input type="email" name="correo" placeholder="Correo electrónico" required>
             </div>
 
             <div class="campo animar">
-    <input
-        id="telefono"
-        type="tel"
-        placeholder="+52 (55) 1234 5678"
-        inputmode="tel"
-        required
-        title="Ingresa tu número con lada mexicana"
-    >
-</div>
-
-
-
-
+                <input
+                    id="telefono"
+                    name="telefono"
+                    type="tel"
+                    placeholder="+52 (55) 1234 5678"
+                    inputmode="tel"
+                    required
+                    title="Ingresa tu número con lada mexicana"
+                >
+            </div>
 
             <div class="campo animar">
-                <input type="text" placeholder="Asunto" required>
+                <input type="text" name="asunto" placeholder="Asunto" required>
             </div>
 
             <button class="animar" type="submit">
@@ -112,6 +109,27 @@
         });
     </script>
 
+    <!-- ENVÍO A GOOGLE SHEETS -->
+    <script>
+    document.getElementById("contacto").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const datos = new FormData(this);
+
+        fetch("AQUI_VA_TU_URL_DE_APPS_SCRIPT", {
+            method: "POST",
+            body: datos
+        })
+        .then(response => {
+            alert("Información enviada correctamente");
+            this.reset();
+        })
+        .catch(error => {
+            alert("Hubo un error al enviar");
+        });
+    });
+    </script>
+
     <!-- SONIDO CLICK -->
     <audio id="click-sound" preload="auto">
         <source src="Sound FX/creatorshome-digital-click-357350.mp3" type="audio/mpeg">
@@ -128,18 +146,17 @@
                 });
             });
     </script>
+
     <script>
     const telefono = document.getElementById("telefono");
 
     telefono.addEventListener("input", () => {
         let valor = telefono.value.replace(/\D/g, "");
 
-        // Eliminar lada si el usuario escribe 52
         if (valor.startsWith("52")) {
             valor = valor.slice(2);
         }
 
-        // Limitar a 10 dígitos nacionales
         valor = valor.slice(0, 10);
 
         let resultado = "+52";
@@ -156,15 +173,7 @@
 
         telefono.value = resultado;
     });
-</script>
-
+    </script>
 
 </body>
 </html>
-
-
-
-
-
-
-

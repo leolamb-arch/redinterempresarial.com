@@ -1,4 +1,5 @@
-<body>
+<!DOCTYPE html>
+<html lang="es">
 <head>   
     <meta charset="UTF-8">
     <title>Asesoría Empresarial | redinterempresarial.com</title>
@@ -8,21 +9,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="segmentos.css">
 </head>
-    <section class="vision-section">
-        <div class="vision-card">
-            <h1 class="serviciosdd">Contabilidad</h1>
 
-            <p class="descripcion">
-                Llevamos tu contabilidad al siguiente nivel con precisión y profesionalismo, 
-                siempre cuidando la salud financiera de tu negocio y transformándola 
-                en tranquilidad para tu vida laboral.
-            </p>
-        </div>
-    </section>
+<body>
+
+    <main class="contenedor animar">
+
+        <span class="badge">Servicio Profesional</span>
+
+        <h1>Contabilidad</h1>
+
+        <p class="descripcion">
+            Llevamos tu contabilidad al siguiente nivel con precisión y profesionalismo, siempre cuidando la salud financiera de tu negocio y transformándola en tranquilidad para tu vida laboral.
+        </p>
+
+
+    </main>
+
+    <!-- Animación de entrada -->
+    <script>
+        window.addEventListener("load", () => {
+            document.querySelector(".animar").classList.add("activo");
+        });
+    </script>
 
 </body>
+</html>
 
 
 

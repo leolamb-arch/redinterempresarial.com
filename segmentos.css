@@ -7,7 +7,7 @@ h1.serviciosdd {
 } 
 
 h3.serviciosdd { 
-    color: rgb(black); font-size: 15px;
+    color: black; font-size: 15px;
 } 
 /* ================================
    BASE
@@ -194,6 +194,7 @@ h1.serviciosdd {
     50% { transform: translateY(-6px); }
     100% { transform: translateY(0px); }
 }
+
 
 
 

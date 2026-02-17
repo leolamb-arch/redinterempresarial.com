@@ -173,9 +173,6 @@
     document.getElementById("contacto").addEventListener("submit", function(e) {
         e.preventDefault();
 
-        const datos = new FormData(this);
-        datos.append("token", "JtbvduiGHFKMJSRITOKEN2026");
-
         fetch("https://script.google.com/macros/s/AKfycbyX1iAG1v0z1FZ6s20xh6zAPoRoFSRCdsUm-Jlk1RzU-6ssrL7mOHbA3R0JGfl-IxBCmw/exec", {
             method: "POST",
             body: datos
@@ -235,5 +232,6 @@ telefono.addEventListener("input", () => {
 
 </body>
 </html>
+
 
 

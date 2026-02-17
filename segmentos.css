@@ -197,6 +197,91 @@ h1.serviciosdd {
 
 
 
+/* ================================
+   SECCIÓN QUIÉNES SOMOS
+================================ */
+.about-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+/* ================================
+   TARJETA CORPORATIVA
+================================ */
+.about-card {
+    max-width: 900px;
+    padding: 60px 50px;
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+
+    text-align: left;
+
+    animation: aparecer 1s ease forwards;
+}
+
+/* ================================
+   TÍTULO
+================================ */
+.about-card h2 {
+    font-size: 34px;
+    margin-bottom: 25px;
+    color: #d4af37;
+}
+
+/* ================================
+   PÁRRAFOS
+================================ */
+.about-card p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: #e5e7eb;
+    margin-bottom: 20px;
+}
+
+/* ================================
+   SUBTÍTULO
+================================ */
+.about-card h3 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #d4af37;
+}
+
+/* ================================
+   LISTA ESTRATÉGICA
+================================ */
+.about-card ul {
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+.about-card ul li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #cbd5e1;
+}
+
+/* ================================
+   FRASE FINAL DESTACADA
+================================ */
+.closing-statement {
+    margin-top: 30px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+
+
+
 
 
 

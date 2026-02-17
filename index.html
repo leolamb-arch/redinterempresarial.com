@@ -170,21 +170,24 @@
 
     <!-- ENVÍO A GOOGLE SHEETS -->
     <script>
-    document.getElementById("contacto").addEventListener("submit", function(e) {
-        e.preventDefault();
+   document.getElementById("contacto").addEventListener("submit", function(e) {
+    e.preventDefault();
 
-        fetch("https://script.google.com/macros/s/AKfycbyX1iAG1v0z1FZ6s20xh6zAPoRoFSRCdsUm-Jlk1RzU-6ssrL7mOHbA3R0JGfl-IxBCmw/exec", {
-            method: "POST",
-            body: datos
-        })
-        .then(response => {
-            alert("Información enviada correctamente");
-            this.reset();
-        })
-        .catch(error => {
-            alert("Hubo un error al enviar");
-        });
+    const datos = new FormData(this);
+
+    fetch("https://script.google.com/macros/s/AKfycbyX1iAG1v0z1FZ6s20xh6zAPoRoFSRCdsUm-Jlk1RzU-6ssrL7mOHbA3R0JGfl-IxBCmw/exec", {
+        method: "POST",
+        body: datos
+    })
+    .then(() => {
+        alert("Información enviada correctamente");
+        this.reset();
+    })
+    .catch(() => {
+        alert("Hubo un error al enviar");
     });
+});
+
     </script>
 
     <!-- SONIDO CLICK -->
@@ -232,6 +235,7 @@ telefono.addEventListener("input", () => {
 
 </body>
 </html>
+
 
 
 

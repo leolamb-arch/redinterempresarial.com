@@ -216,9 +216,9 @@ h1.serviciosdd {
     padding: 60px 50px;
     border-radius: 22px;
 
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(14px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(15, 23, 42, 0.85); /* Fondo más sólido */
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(212, 175, 55, 0.25); /* Marco dorado sutil */
 
     box-shadow: 0 30px 60px rgba(0,0,0,0.45);
 
@@ -233,7 +233,7 @@ h1.serviciosdd {
 .about-card h2 {
     font-size: 34px;
     margin-bottom: 25px;
-    color: #d4af37;
+    color: #facc15; /* Dorado más visible */
 }
 
 /* ================================
@@ -242,9 +242,10 @@ h1.serviciosdd {
 .about-card p {
     font-size: 1.1rem;
     line-height: 1.9;
-    color: #e5e7eb;
+    color: #f1f5f9; /* Texto más claro */
     margin-bottom: 20px;
 }
+
 
 /* ================================
    SUBTÍTULO
@@ -278,6 +279,7 @@ h1.serviciosdd {
     font-weight: 500;
     color: #ffffff;
 }
+
 
 
 

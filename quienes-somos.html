@@ -5,32 +5,151 @@
 <title>¿Por qué nosotros? | Red Interempresarial</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- SEO -->
-<meta name="description" content="Descubre por qué Red Interempresarial es tu aliado estratégico en asesoría contable y fiscal en México.">
-<meta name="author" content="Red Interempresarial">
+<meta name="description" content="Firma especializada en asesoría contable y fiscal estratégica en México.">
 <meta name="theme-color" content="#0b1a33">
 
-<!-- Open Graph -->
-<meta property="og:title" content="¿Por qué nosotros? | Red Interempresarial">
-<meta property="og:description" content="Firma especializada en asesoría contable y fiscal estratégica en México.">
-<meta property="og:type" content="website">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="segmentos.css">
-
-<!-- JSON-LD -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "AccountingService",
-  "name": "Red Interempresarial",
-  "description": "Asesoría contable y fiscal estratégica en México.",
-  "areaServed": "México"
+<style>
+:root{
+--primary:#0b1a33;
+--secondary:#d4af37;
+--text:#e5e7eb;
+--glass:rgba(255,255,255,0.05);
 }
-</script>
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:'Inter',sans-serif;
+background:linear-gradient(135deg,#0b1a33,#111c3d);
+color:var(--text);
+overflow-x:hidden;
+}
+
+/* Fondo dinámico */
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 15% 25%, rgba(212,175,55,0.12), transparent 40%),
+radial-gradient(circle at 85% 75%, rgba(212,175,55,0.08), transparent 40%);
+animation:moveBg 18s infinite alternate ease-in-out;
+z-index:-1;
+}
+
+@keyframes moveBg{
+from{transform:translateY(0)}
+to{transform:translateY(-40px)}
+}
+
+/* Contenedor */
+.contenedor{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:80px 20px;
+opacity:0;
+transform:translateY(40px);
+transition:1.2s ease;
+}
+
+.contenedor.activo{
+opacity:1;
+transform:translateY(0);
+}
+
+.about-card{
+max-width:950px;
+padding:60px 50px;
+background:var(--glass);
+backdrop-filter:blur(18px);
+border-radius:25px;
+box-shadow:0 25px 70px rgba(0,0,0,0.5);
+border:1px solid rgba(212,175,55,0.15);
+}
+
+h1{
+font-size:3rem;
+text-align:center;
+margin-bottom:30px;
+background:linear-gradient(90deg,#fff,#d4af37);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+h2{
+color:var(--secondary);
+margin-bottom:15px;
+font-weight:600;
+}
+
+h3{
+margin-top:35px;
+margin-bottom:20px;
+font-weight:600;
+letter-spacing:1px;
+color:#ffffff;
+}
+
+p{
+margin-bottom:20px;
+line-height:1.8;
+font-weight:300;
+color:#cbd5e1;
+}
+
+/* Lista elegante */
+ul{
+list-style:none;
+display:grid;
+gap:18px;
+margin-top:10px;
+}
+
+ul li{
+padding:18px 20px;
+border-radius:15px;
+background:rgba(212,175,55,0.05);
+border:1px solid rgba(212,175,55,0.2);
+transition:0.4s;
+position:relative;
+padding-left:45px;
+}
+
+ul li::before{
+content:"◆";
+position:absolute;
+left:18px;
+color:var(--secondary);
+font-size:14px;
+}
+
+ul li:hover{
+background:rgba(212,175,55,0.12);
+transform:translateY(-5px);
+}
+
+.closing-statement{
+margin-top:35px;
+padding:25px;
+border-left:4px solid var(--secondary);
+background:rgba(212,175,55,0.06);
+border-radius:12px;
+font-weight:400;
+color:#e2e8f0;
+}
+
+/* Responsive */
+@media(max-width:768px){
+h1{font-size:2.2rem}
+.about-card{padding:40px 25px}
+}
+</style>
 
 </head>
 
@@ -39,36 +158,34 @@
 <main>
 <section class="contenedor" id="aboutBox">
 
-<header>
-<h1>¿Por qué nosotros?</h1>
-</header>
-
 <article class="about-card">
+
+<h1>¿Por qué nosotros?</h1>
 
 <h2>¿Quiénes somos?</h2>
 
 <p>
-En <strong>Red Interempresarial</strong> somos una firma especializada en asesoría contable, fiscal y estratégica con presencia en toda la República Mexicana.
+En <strong>Red Interempresarial</strong> somos una firma especializada en asesoría contable, fiscal y estratégica con presencia nacional.
 </p>
 
 <p>
-No solo cumplimos obligaciones fiscales. Construimos estrategias que fortalecen empresas, optimizan recursos y blindan operaciones dentro del marco legal mexicano.
+No solo gestionamos obligaciones fiscales; diseñamos estructuras financieras sólidas, optimizamos recursos y fortalecemos la toma de decisiones dentro del marco legal mexicano.
 </p>
 
 <p>
-Integramos análisis financiero, planeación fiscal estratégica y tecnología aplicada para convertir los números en decisiones inteligentes.
+Integramos análisis financiero avanzado, planeación fiscal estratégica y tecnología aplicada para transformar información contable en ventajas competitivas.
 </p>
 
 <h3>¿Qué nos distingue?</h3>
 
 <ul>
-<li>Planeación fiscal estratégica a nivel nacional.</li>
-<li>Cumplimiento impecable ante autoridades fiscales.</li>
-<li>Acompañamiento personalizado con enfoque empresarial.</li>
+<li>Planeación fiscal estratégica con enfoque preventivo y visión nacional.</li>
+<li>Cumplimiento normativo riguroso ante autoridades fiscales.</li>
+<li>Acompañamiento ejecutivo personalizado orientado al crecimiento empresarial.</li>
 </ul>
 
 <p class="closing-statement">
-Nuestro compromiso es brindar certeza financiera, seguridad fiscal y estrategias que impulsen el crecimiento empresarial en cualquier estado del país.
+Nuestro compromiso es generar certeza financiera, seguridad jurídica y estrategias sostenibles que impulsen el desarrollo estructurado de cada organización.
 </p>
 
 </article>
@@ -76,16 +193,10 @@ Nuestro compromiso es brindar certeza financiera, seguridad fiscal y estrategias
 </section>
 </main>
 
-<noscript>
-<style>
-#aboutBox { opacity:1 !important; transform:none !important; }
-</style>
-</noscript>
-
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-const box = document.getElementById("aboutBox");
-if (box) requestAnimationFrame(() => box.classList.add("activo"));
+document.addEventListener("DOMContentLoaded",()=>{
+const box=document.getElementById("aboutBox");
+requestAnimationFrame(()=>box.classList.add("activo"));
 });
 </script>
 

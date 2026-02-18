@@ -14,7 +14,7 @@
 <meta property="og:description" content="Asesoría contable y fiscal estratégica en México.">
 <meta property="og:type" content="website">
 
-<!-- Optimización fuentes -->
+<!-- Preconnect fuentes -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -26,32 +26,36 @@
 
 <header>
 <img
-src="rilogo.png"
-alt="Logo Red Interempresarial"
+id="logo"
+class="animar animar-logo"
+src="Imagenes/rilogo.png"
+alt="Logo del despacho contable Red Interempresarial"
 width="180"
 height="180"
 loading="eager"
 decoding="async"
 >
 
-<h1>Despacho Contable & Fiscal</h1>
-<h2>Red Interempresarial Especialistas Contables - Fiscales</h2>
+<h1 class="animar animar-titulo">Despacho Contable & Fiscal</h1>
+<h2 class="animar animar-subtitulo">
+Red Interempresarial Especialistas Contables - Fiscales
+</h2>
 </header>
 
 <main>
 
-<section class="form-card">
+<section class="form-card animar animar-card">
 
 <nav>
-<ul class="opciones-formulario">
+<ul class="opciones-formulario animar">
 
-<li><a href="vision.html">Nuestra Visión</a></li>
-<li><a href="mision.html">Nuestra Misión</a></li>
-<li><a href="quienes-somos.html">¿Quiénes somos?</a></li>
-<li><a href="contabilidad.html">Contabilidad</a></li>
-<li><a href="contactanos.html">Asesoría Personalizada</a></li>
+<li class="caja"><a href="Segmentos de trabajo/vision.html">Nuestra Visión</a></li>
+<li class="caja"><a href="Segmentos de trabajo/mision.html">Nuestra Misión</a></li>
+<li class="caja"><a href="Segmentos de trabajo/quienes-somos.html">¿Quiénes somos?</a></li>
+<li class="caja"><a href="Segmentos de trabajo/contabilidad.html">Contabilidad</a></li>
+<li class="caja"><a href="Segmentos de trabajo/contactanos.html">Asesoría Personalizada</a></li>
 
-<li>
+<li class="caja">
 <a href="https://www.google.com/maps/place/Red+Interempresarial/"
 target="_blank"
 rel="noopener noreferrer">
@@ -64,19 +68,32 @@ rel="noopener noreferrer">
 
 <form id="contacto" autocomplete="on">
 
-<input type="text" name="nombre" placeholder="Nombre completo" required autocomplete="name">
+<div class="campo animar">
+<input id="nombre" type="text" name="nombre"
+placeholder="Nombre completo" required autocomplete="name">
+</div>
 
-<input type="email" name="correo" placeholder="Correo electrónico" required autocomplete="email">
+<div class="campo animar">
+<input id="correo" type="email" name="correo"
+placeholder="Correo electrónico" required autocomplete="email">
+</div>
 
-<input type="tel" id="telefono" name="telefono"
-placeholder="(33) 1234 5678"
+<div class="campo animar">
+<input id="telefono" name="telefono" type="tel"
+placeholder="(55) 1234 5678"
 inputmode="numeric"
 pattern="[0-9]*"
 required autocomplete="tel">
+</div>
 
-<input type="text" name="asunto" placeholder="Asunto" required>
+<div class="campo animar">
+<input id="asunto" type="text" name="asunto"
+placeholder="Asunto" required>
+</div>
 
-<button type="submit">Enviar información</button>
+<button class="animar" type="submit">
+Enviar información
+</button>
 
 </form>
 
@@ -85,7 +102,7 @@ required autocomplete="tel">
 </main>
 
 <footer>
-<small>© 2026 Red Interempresarial</small>
+<small>© 2026 Red Interempresarial | Despacho Contable & Fiscal</small>
 </footer>
 
 <audio id="click-sound" preload="none">
@@ -95,32 +112,38 @@ required autocomplete="tel">
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
+/* Animaciones originales */
+document.querySelectorAll(".animar").forEach((el, i) => {
+setTimeout(() => {
+el.classList.add("activo");
+}, i * 80);
+});
+
+/* Formulario */
 const form = document.getElementById("contacto");
 const telefono = document.getElementById("telefono");
 const clickSound = document.getElementById("click-sound");
 
-/* Envío formulario optimizado */
-form.addEventListener("submit", async e => {
+form.addEventListener("submit", async function(e){
 e.preventDefault();
-try {
-const datos = new FormData(form);
+try{
+const datos = new FormData(this);
 datos.append("token","JtbvduiGHFKMJSRITOKEN2026");
 
-await fetch("https://script.google.com/macros/s/AKfycbyX1iAG1v0z1FZ6s20xh6zAPoRoFSRCdsUm-Jlk1RzU-6ssrL7mOHbA3R0JGfl-IxBCmw/exec", {
-method: "POST",
-body: datos
+await fetch("https://script.google.com/macros/s/AKfycbyX1iAG1v0z1FZ6s20xh6zAPoRoFSRCdsUm-Jlk1RzU-6ssrL7mOHbA3R0JGfl-IxBCmw/exec",{
+method:"POST",
+body:datos
 });
 
 alert("Información enviada correctamente");
-form.reset();
-
-} catch {
+this.reset();
+}catch{
 alert("Hubo un error al enviar");
 }
 });
 
-/* Formato teléfono eficiente */
-telefono.addEventListener("input", () => {
+/* Teléfono */
+telefono.addEventListener("input",()=>{
 let v = telefono.value.replace(/\D/g,"").slice(0,10);
 
 if(v.length>6){
@@ -132,8 +155,8 @@ telefono.value=v;
 }
 });
 
-/* Sonido optimizado */
-document.querySelectorAll(".opciones-formulario a")
+/* Sonido */
+document.querySelectorAll(".opciones-formulario .caja a")
 .forEach(link=>{
 link.addEventListener("click",()=>{
 if(clickSound){
@@ -148,5 +171,3 @@ clickSound.play().catch(()=>{});
 
 </body>
 </html>
-
-

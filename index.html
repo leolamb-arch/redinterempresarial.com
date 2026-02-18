@@ -6,13 +6,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta name="description" content="Despacho contable y fiscal en México. Especialistas en asesoría fiscal, contabilidad y estrategia empresarial.">
+<meta name="author" content="Red Interempresarial">
 <meta name="theme-color" content="#0b1a33">
 
-<!-- Preconnect optimizado -->
+<!-- Open Graph -->
+<meta property="og:title" content="Despacho Contable | Red Interempresarial">
+<meta property="og:description" content="Asesoría contable y fiscal estratégica en México.">
+<meta property="og:type" content="website">
+
+<!-- Optimización fuentes -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<!-- Fuente optimizada -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
@@ -21,19 +25,17 @@
 <body>
 
 <header>
-
 <img
-src="rilogo.png"
+src="Imagenes/rilogo.png"
 alt="Logo Red Interempresarial"
-width="160"
-height="160"
+width="180"
+height="180"
+loading="eager"
 decoding="async"
-fetchpriority="high"
 >
 
 <h1>Despacho Contable & Fiscal</h1>
 <h2>Red Interempresarial Especialistas Contables - Fiscales</h2>
-
 </header>
 
 <main>
@@ -42,11 +44,13 @@ fetchpriority="high"
 
 <nav>
 <ul class="opciones-formulario">
-<li><a href="vision.html">Nuestra Visión</a></li>
-<li><a href="mision.html">Nuestra Misión</a></li>
-<li><a href="quienes-somos.html">¿Quiénes somos?</a></li>
-<li><a href="contabilidad.html">Contabilidad</a></li>
-<li><a href="contactanos.html">Asesoría Personalizada</a></li>
+
+<li><a href="Segmentos-de-trabajo/vision.html">Nuestra Visión</a></li>
+<li><a href="Segmentos-de-trabajo/mision.html">Nuestra Misión</a></li>
+<li><a href="Segmentos-de-trabajo/quienes-somos.html">¿Quiénes somos?</a></li>
+<li><a href="Segmentos-de-trabajo/contabilidad.html">Contabilidad</a></li>
+<li><a href="Segmentos-de-trabajo/contactanos.html">Asesoría Personalizada</a></li>
+
 <li>
 <a href="https://www.google.com/maps/place/Red+Interempresarial/"
 target="_blank"
@@ -54,6 +58,7 @@ rel="noopener noreferrer">
 📍 Ubicación del Despacho
 </a>
 </li>
+
 </ul>
 </nav>
 
@@ -61,7 +66,7 @@ rel="noopener noreferrer">
 
 <input type="text" name="nombre" placeholder="Nombre completo" required autocomplete="name">
 
-<input type="email" name="correo" placeholder="Correo electrónico" required autocomplete="email" inputmode="email">
+<input type="email" name="correo" placeholder="Correo electrónico" required autocomplete="email">
 
 <input type="tel" id="telefono" name="telefono"
 placeholder="(33) 1234 5678"
@@ -83,47 +88,39 @@ required autocomplete="tel">
 <small>© 2026 Red Interempresarial</small>
 </footer>
 
+<audio id="click-sound" preload="none">
+<source src="sound-fx/creatorshome-digital-click-357350.mp3" type="audio/mpeg">
+</audio>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-/* Animación eficiente */
-const elements = document.querySelectorAll(".form-card, header");
-
-if("IntersectionObserver" in window){
-const observer = new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add("visible");
-observer.unobserve(entry.target);
-}
-});
-},{threshold:0.15});
-
-elements.forEach(el=>observer.observe(el));
-}
-
-/* Formulario */
 const form = document.getElementById("contacto");
+const telefono = document.getElementById("telefono");
+const clickSound = document.getElementById("click-sound");
 
-form.addEventListener("submit", async e=>{
+/* Envío formulario optimizado */
+form.addEventListener("submit", async e => {
 e.preventDefault();
+try {
+const datos = new FormData(form);
+datos.append("token","JtbvduiGHFKMJSRITOKEN2026");
 
-try{
-await fetch("https://script.google.com/macros/s/AKfycbyX1iAG1v0z1FZ6s20xh6zAPoRoFSRCdsUm-Jlk1RzU-6ssrL7mOHbA3R0JGfl-IxBCmw/exec",{
-method:"POST",
-body:new FormData(form)
+await fetch("https://script.google.com/macros/s/AKfycbyX1iAG1v0z1FZ6s20xh6zAPoRoFSRCdsUm-Jlk1RzU-6ssrL7mOHbA3R0JGfl-IxBCmw/exec", {
+method: "POST",
+body: datos
 });
+
 alert("Información enviada correctamente");
 form.reset();
-}catch{
+
+} catch {
 alert("Hubo un error al enviar");
 }
 });
 
-/* Teléfono optimizado */
-const telefono = document.getElementById("telefono");
-
-telefono.addEventListener("input",()=>{
+/* Formato teléfono eficiente */
+telefono.addEventListener("input", () => {
 let v = telefono.value.replace(/\D/g,"").slice(0,10);
 
 if(v.length>6){
@@ -133,6 +130,17 @@ telefono.value=`(${v.slice(0,2)}) ${v.slice(2)}`;
 }else{
 telefono.value=v;
 }
+});
+
+/* Sonido optimizado */
+document.querySelectorAll(".opciones-formulario a")
+.forEach(link=>{
+link.addEventListener("click",()=>{
+if(clickSound){
+clickSound.currentTime=0;
+clickSound.play().catch(()=>{});
+}
+});
 });
 
 });

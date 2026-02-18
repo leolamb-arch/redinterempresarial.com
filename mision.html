@@ -2,87 +2,170 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Nuestra Misión | Red Interempresarial</title>
+<title>Nuestra Visión | Red Interempresarial</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- SEO -->
-<meta name="description" content="Conoce la misión de Red Interempresarial. Servicios contables y fiscales estratégicos en México.">
+<meta name="description" content="Despacho contable y fiscal con enfoque estratégico. Asesoría empresarial profesional en México.">
 <meta name="author" content="Red Interempresarial">
 <meta name="theme-color" content="#0f172a">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Nuestra Misión | Red Interempresarial">
-<meta property="og:description" content="Servicios contables y fiscales estratégicos en México.">
+<meta property="og:title" content="Nuestra Visión | Red Interempresarial">
+<meta property="og:description" content="Asesoría contable y fiscal estratégica en México.">
 <meta property="og:type" content="website">
 
-<!-- Google Fonts optimizado -->
+<!-- Optimización de fuentes -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="segmentos.css">
-
-<!-- JSON-LD -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "AccountingService",
-  "name": "Red Interempresarial",
-  "description": "Servicios contables y fiscales estratégicos en México.",
-  "areaServed": "México"
+<style>
+:root {
+    --primary: #0f172a;
+    --secondary: #b89b64;
+    --light: #f8fafc;
+    --text: #334155;
+    --gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
 }
-</script>
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--light);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* HERO */
+.hero {
+    min-height: 100vh;
+    background: var(--gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    position: relative;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(to top, var(--light), transparent);
+}
+
+/* CONTENEDOR */
+.contenedor {
+    max-width: 900px;
+    text-align: center;
+    color: #ffffff;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.contenedor.activo {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    letter-spacing: -1px;
+}
+
+.linea-dorada {
+    width: 70px;
+    height: 3px;
+    background: var(--secondary);
+    margin: 0 auto 40px auto;
+}
+
+.descripcion {
+    font-size: 1.1rem;
+    font-weight: 300;
+    max-width: 750px;
+    margin: auto;
+}
+
+.descripcion strong {
+    color: var(--secondary);
+    font-weight: 600;
+}
+
+.cta {
+    margin-top: 45px;
+    display: inline-block;
+    padding: 14px 35px;
+    border: 1px solid var(--secondary);
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: all 0.4s ease;
+}
+
+.cta:hover {
+    background: var(--secondary);
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .descripcion {
+        font-size: 1rem;
+    }
+}
+</style>
 </head>
 
 <body>
 
+<main>
 <section class="hero">
-<main class="contenedor" id="misionBox">
+    <div class="contenedor" id="visionBox">
+        <h1>Nuestra Misión</h1>
+        <div class="linea-dorada"></div>
 
-<h1>Nuestra Misión</h1>
+        <p class="descripcion">
+            Brindar servicios <strong>>contables y fiscales de alta calidad, confiables y personalizados</strong, que permitan a nuestros clientes cumplir con sus obligaciones fiscales y contables de manera eficiente y oportuna, contribuyendo así al éxito y crecimiento de sus negocios.
+            <br><br>
+            Nos distinguimos por un <strong>servicio personalizado, visión preventiva y acompañamiento continuo</strong>, convirtiéndonos en un aliado estratégico para la toma de decisiones empresariales.
+            <br><br>
+            Más que contadores, somos socios estratégicos comprometidos con el crecimiento sostenible y el éxito de cada uno de nuestros clientes.
+        </p>
 
-<div class="linea-dorada"></div>
-
-<p class="descripcion">
-Brindar servicios contables y fiscales de 
-<strong>alta calidad, confiables y personalizados</strong>, 
-que permitan a nuestros clientes cumplir con sus obligaciones fiscales y contables 
-de manera eficiente y oportuna, contribuyendo así al éxito y crecimiento de sus negocios.
-<br><br>
-Nos distinguimos por un servicio personalizado, visión preventiva y acompañamiento continuo, 
-convirtiéndonos en un aliado estratégico para la toma de decisiones empresariales.
-<br><br>
-Más que contadores, somos socios estratégicos comprometidos con el crecimiento sostenible 
-y el éxito de cada uno de nuestros clientes.
-</p>
-
-<a href="contactanos.html" class="cta">
-Solicitar Asesoría
-</a>
-
-</main>
+    </div>
 </section>
-
-<noscript>
-<style>
-#misionBox {
-opacity: 1 !important;
-transform: none !important;
-}
-</style>
-</noscript>
+</main>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-const box = document.getElementById("misionBox");
-if (box) {
-requestAnimationFrame(() => {
-box.classList.add("activo");
-});
-}
+    const box = document.getElementById("visionBox");
+    if (box) {
+        requestAnimationFrame(() => {
+            box.classList.add("activo");
+        });
+    }
 });
 </script>
 
 </body>
 </html>
+
+
+

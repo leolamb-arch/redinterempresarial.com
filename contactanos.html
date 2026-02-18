@@ -1,69 +1,91 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Contacto | Red Interempresarial</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contacto oficial de Red Interempresarial. Equipo profesional en asesoría contable y empresarial en Guadalajara.">
-    <link rel="icon" href="favicon.ico">
+<meta charset="UTF-8">
+<title>Contacto | Red Interempresarial</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Contacto con el equipo profesional de Red Interempresarial. Asesoría contable y fiscal en México.">
+<meta name="theme-color" content="#0b1a33">
 
-    <!-- Fuente -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Open Graph -->
+<meta property="og:title" content="Contacto | Red Interempresarial">
+<meta property="og:description" content="Equipo profesional de asesoría contable y fiscal en México.">
+<meta property="og:type" content="website">
 
-    <!-- TU CSS PRINCIPAL -->
-    <link rel="stylesheet" href="segmentos.css">
+<!-- Optimización fuentes -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="segmentos.css">
 </head>
 
 <body>
 
-    <main class="contenedor-wrapper">
+<main class="contenedor-wrapper">
 
-        <section class="contenedor animar">
+<section class="contenedor animar" id="contactSection">
 
-            <span class="badge">Equipo Profesional</span>
+    <span class="badge">Equipo Profesional</span>
 
-            <p class="subtitulo">Estamos listos para ayudarte a fortalecer tu empresa.</p>
-            <h1>Contacto con Nuestro Equipo</h1>
+    <h1>Contacto con Nuestro Equipo</h1>
 
-            <div class="equipo-contacto">
+    <div class="equipo-contacto">
 
-                <!-- COLABORADOR 1 -->
-                <div class="colaborador">
-                    <h3>L.C.P Luz del Carmen Barragán Ruano</h3>
-                    <p><strong>Cargo:</strong> Contador Principal</p>
-                    <p><strong>Correo:</strong>
-                        <a href="mailto:lucybarraganri@redinterempresarial.com">
-                            lucybarraganri@redinterempresarial.com
-                        </a>
-                    </p>
-                  
+        <!-- COLABORADOR 1 -->
+        <article class="colaborador">
+            <h3>L.C.P Luz del Carmen Barragán Ruano</h3>
+            <p><strong>Cargo:</strong> Contador Principal</p>
+            <p><strong>Correo:</strong>
+                <a href="mailto:lucybarraganri@redinterempresarial.com"
+                   aria-label="Enviar correo a Luz del Carmen Barragán"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                   lucybarraganri@redinterempresarial.com
+                </a>
+            </p>
+            <p><strong>Teléfono:</strong>
+                <a href="tel:+523336671778" aria-label="Llamar a Luz del Carmen Barragán">
+                    +52 (33) 3667 1778
+                </a>
+            </p>
+        </article>
 
-                <!-- COLABORADOR 2 -->
-                <div class="colaborador">
-                    <h3>L.A.E Martha Fabiola Barragán Ruan</h3>
-                    <p><strong>Cargo:</strong> Administrador de empresas</p>
-                    <p><strong>Correo:</strong>
-                        <a href="mailto:fabybarraganri@redinterempresarial.com">
-                            fabybarraganri@redinterempresarial.com
-                        </a>
-                    </p>
-                   
-                </div>
+        <!-- COLABORADOR 2 -->
+        <article class="colaborador">
+            <h3>L.A.E Martha Fabiola Barragán Ruan</h3>
+            <p><strong>Cargo:</strong> Administrador de empresas</p>
+            <p><strong>Correo:</strong>
+                <a href="mailto:fabybarraganri@redinterempresarial.com"
+                   aria-label="Enviar correo a Martha Fabiola Barragán"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                   fabybarraganri@redinterempresarial.com
+                </a>
+            </p>
+            <p><strong>Teléfono:</strong>
+                <a href="tel:+523331054779" aria-label="Llamar a Martha Fabiola Barragán">
+                    +52 (33) 3105 4779
+                </a>
+            </p>
+        </article>
 
-            </div>
+    </div>
 
-        </section>
+</section>
 
-    </main>
+</main>
 
-    <!-- Activar animación -->
-    <script>
-        window.addEventListener("load", () => {
-            document.querySelectorAll(".animar").forEach((el) => {
-                el.classList.add("activo");
-            });
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const section = document.getElementById("contactSection");
+    if (section) {
+        requestAnimationFrame(() => {
+            section.classList.add("activo");
         });
-    </script>
+    }
+});
+</script>
 
 </body>
 </html>

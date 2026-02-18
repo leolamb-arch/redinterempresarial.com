@@ -3,17 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Despacho Contable en México | Red Interempresarial</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- SEO -->
 <meta name="description" content="Despacho contable y fiscal en México. Especialistas en asesoría fiscal, contabilidad y estrategia empresarial.">
-<meta name="author" content="Red Interempresarial">
 <meta name="theme-color" content="#0b1a33">
 
-<!-- Preconnect para velocidad -->
+<!-- Preconnect optimizado -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+<!-- Fuente optimizada -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
@@ -24,103 +23,55 @@
 <header>
 
 <img
-id="logo"
-class="animar animar-logo"
 src="rilogo.png"
-alt="Logo del despacho contable Red Interempresarial"
-width="180"
-height="auto"
-loading="eager"
+alt="Logo Red Interempresarial"
+width="160"
+height="160"
 decoding="async"
+fetchpriority="high"
 >
 
-<h1 class="animar animar-titulo">
-Despacho Contable & Fiscal
-</h1>
-
-<h2 class="animar animar-subtitulo">
-Red Interempresarial Especialistas Contables - Fiscales
-</h2>
+<h1>Despacho Contable & Fiscal</h1>
+<h2>Red Interempresarial Especialistas Contables - Fiscales</h2>
 
 </header>
 
 <main>
 
-<section class="form-card animar animar-card">
+<section class="form-card">
 
 <nav>
 <ul class="opciones-formulario">
-
-<li class="caja"><a href="vision.html">Nuestra Visión</a></li>
-<li class="caja"><a href="mision.html">Nuestra Misión</a></li>
-<li class="caja"><a href="quienes-somos.html">¿Quiénes somos?</a></li>
-<li class="caja"><a href="contabilidad.html">Contabilidad</a></li>
-<li class="caja"><a href="contactanos.html">Asesoría Personalizada</a></li>
-
-<li class="caja">
-<a 
-href="https://www.google.com/maps/place/Red+Interempresarial/"
+<li><a href="vision.html">Nuestra Visión</a></li>
+<li><a href="mision.html">Nuestra Misión</a></li>
+<li><a href="quienes-somos.html">¿Quiénes somos?</a></li>
+<li><a href="contabilidad.html">Contabilidad</a></li>
+<li><a href="contactanos.html">Asesoría Personalizada</a></li>
+<li>
+<a href="https://www.google.com/maps/place/Red+Interempresarial/"
 target="_blank"
-rel="noopener noreferrer"
->
+rel="noopener noreferrer">
 📍 Ubicación del Despacho
 </a>
 </li>
-
 </ul>
 </nav>
 
 <form id="contacto" autocomplete="on">
 
-<div class="campo">
-<input 
-id="nombre"
-type="text" 
-name="nombre" 
-placeholder="Nombre completo" 
-required
-autocomplete="name"
->
-</div>
+<input type="text" name="nombre" placeholder="Nombre completo" required autocomplete="name">
 
-<div class="campo">
-<input 
-id="correo"
-type="email" 
-name="correo" 
-placeholder="Correo electrónico" 
-required
-autocomplete="email"
-inputmode="email"
->
-</div>
+<input type="email" name="correo" placeholder="Correo electrónico" required autocomplete="email" inputmode="email">
 
-<div class="campo">
-<input
-id="telefono"
-name="telefono"
-type="tel"
+<input type="tel" id="telefono" name="telefono"
 placeholder="(33) 1234 5678"
 inputmode="numeric"
 pattern="[0-9]*"
-required
-autocomplete="tel"
->
-</div>
+required autocomplete="tel">
 
-<div class="campo">
-<input 
-id="asunto"
-type="text" 
-name="asunto" 
-placeholder="Asunto" 
-required
->
-</div>
+<input type="text" name="asunto" placeholder="Asunto" required>
 
-<button type="submit">
-Enviar información
-</button>
+<button type="submit">Enviar información</button>
 
 </form>
 
@@ -129,50 +80,58 @@ Enviar información
 </main>
 
 <footer>
-<small>© 2026 Red Interempresarial | Despacho Contable & Fiscal</small>
+<small>© 2026 Red Interempresarial</small>
 </footer>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-/* Animación ligera optimizada */
-document.querySelectorAll(".animar").forEach((el, i) => {
-setTimeout(() => el.classList.add("activo"), i * 60);
-});
+/* Animación eficiente */
+const elements = document.querySelectorAll(".form-card, header");
 
-/* Envío formulario optimizado */
+if("IntersectionObserver" in window){
+const observer = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("visible");
+observer.unobserve(entry.target);
+}
+});
+},{threshold:0.15});
+
+elements.forEach(el=>observer.observe(el));
+}
+
+/* Formulario */
 const form = document.getElementById("contacto");
 
-form.addEventListener("submit", function(e){
+form.addEventListener("submit", async e=>{
 e.preventDefault();
 
-const datos = new FormData(this);
-
-fetch("https://script.google.com/macros/s/AKfycbyX1iAG1v0z1FZ6s20xh6zAPoRoFSRCdsUm-Jlk1RzU-6ssrL7mOHbA3R0JGfl-IxBCmw/exec", {
-method: "POST",
-body: datos
-})
-.then(() => {
+try{
+await fetch("https://script.google.com/macros/s/AKfycbyX1iAG1v0z1FZ6s20xh6zAPoRoFSRCdsUm-Jlk1RzU-6ssrL7mOHbA3R0JGfl-IxBCmw/exec",{
+method:"POST",
+body:new FormData(form)
+});
 alert("Información enviada correctamente");
 form.reset();
-})
-.catch(() => {
+}catch{
 alert("Hubo un error al enviar");
-});
+}
 });
 
-/* Formato teléfono más ligero */
+/* Teléfono optimizado */
 const telefono = document.getElementById("telefono");
 
-telefono.addEventListener("input", () => {
+telefono.addEventListener("input",()=>{
 let v = telefono.value.replace(/\D/g,"").slice(0,10);
 
-if(v.length > 6){
-telefono.value = `(${v.slice(0,2)}) ${v.slice(2,6)} ${v.slice(6)}`;
-}else if(v.length > 2){
-telefono.value = `(${v.slice(0,2)}) ${v.slice(2)}`;
+if(v.length>6){
+telefono.value=`(${v.slice(0,2)}) ${v.slice(2,6)} ${v.slice(6)}`;
+}else if(v.length>2){
+telefono.value=`(${v.slice(0,2)}) ${v.slice(2)}`;
 }else{
-telefono.value = v;
+telefono.value=v;
 }
 });
 
@@ -181,8 +140,3 @@ telefono.value = v;
 
 </body>
 </html>
-
-
-
-
-

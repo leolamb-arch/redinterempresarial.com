@@ -15,12 +15,24 @@
 <meta property="og:description" content="Servicios contables y fiscales de alta calidad en México.">
 <meta property="og:type" content="website">
 
-<!-- Optimización de fuentes -->
+<!-- Preconnect Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="segmentos.css">
+
+<!-- JSON-LD Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AccountingService",
+  "name": "Red Interempresarial",
+  "description": "Servicios contables y fiscales estratégicos en México.",
+  "areaServed": "México"
+}
+</script>
+
 </head>
 
 <body>
@@ -28,41 +40,36 @@
 <main>
 <section class="contenedor" id="misionBox">
 
-    <h1>Nuestra Misión</h1>
+<header>
+<h1>Nuestra Misión</h1>
+</header>
 
-    <p class="descripcion">
-        Brindar servicios contables y fiscales de 
-        <strong>alta calidad, confiables y personalizados</strong>, 
-        que permitan a nuestros clientes cumplir con sus obligaciones fiscales y contables 
-        de manera eficiente y oportuna, contribuyendo así al éxito y crecimiento de sus negocios.
-        <br><br>
-        Nos distinguimos por un servicio personalizado, visión preventiva y acompañamiento continuo, 
-        convirtiéndonos en un aliado estratégico para la toma de decisiones empresariales.
-        <br><br>
-        Más que contadores, somos socios estratégicos comprometidos con el crecimiento sostenible 
-        y el éxito de cada uno de nuestros clientes.
-    </p>
+<p class="descripcion">
+Brindar servicios contables y fiscales de 
+<strong>alta calidad, confiables y personalizados</strong>, 
+que permitan a nuestros clientes cumplir con sus obligaciones fiscales y contables 
+de manera eficiente y oportuna, contribuyendo así al éxito y crecimiento de sus negocios.
+<br><br>
+Nos distinguimos por un servicio personalizado, visión preventiva y acompañamiento continuo, 
+convirtiéndonos en un aliado estratégico para la toma de decisiones empresariales.
+<br><br>
+Más que contadores, somos socios estratégicos comprometidos con el crecimiento sostenible 
+y el éxito de cada uno de nuestros clientes.
+</p>
 
 </section>
 </main>
 
 <noscript>
-    <style>
-        .contenedor {
-            opacity: 1 !important;
-            transform: none !important;
-        }
-    </style>
+<style>
+#misionBox { opacity:1 !important; transform:none !important; }
+</style>
 </noscript>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    const box = document.getElementById("misionBox");
-    if (box) {
-        requestAnimationFrame(() => {
-            box.classList.add("activo");
-        });
-    }
+const box = document.getElementById("misionBox");
+if (box) requestAnimationFrame(() => box.classList.add("activo"));
 });
 </script>
 

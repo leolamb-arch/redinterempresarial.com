@@ -8,21 +8,21 @@
 <!-- SEO -->
 <meta name="description" content="Conoce la misión de Red Interempresarial. Servicios contables y fiscales estratégicos en México.">
 <meta name="author" content="Red Interempresarial">
-<meta name="theme-color" content="#0b1a33">
+<meta name="theme-color" content="#0f172a">
 
 <!-- Open Graph -->
 <meta property="og:title" content="Nuestra Misión | Red Interempresarial">
-<meta property="og:description" content="Servicios contables y fiscales de alta calidad en México.">
+<meta property="og:description" content="Servicios contables y fiscales estratégicos en México.">
 <meta property="og:type" content="website">
 
-<!-- Preconnect Google Fonts -->
+<!-- Google Fonts optimizado -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="segmentos.css">
 
-<!-- JSON-LD Schema -->
+<!-- JSON-LD -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -37,12 +37,12 @@
 
 <body>
 
-<main>
-<section class="contenedor" id="misionBox">
+<section class="hero">
+<main class="contenedor" id="misionBox">
 
-<header>
 <h1>Nuestra Misión</h1>
-</header>
+
+<div class="linea-dorada"></div>
 
 <p class="descripcion">
 Brindar servicios contables y fiscales de 
@@ -57,19 +57,30 @@ Más que contadores, somos socios estratégicos comprometidos con el crecimiento
 y el éxito de cada uno de nuestros clientes.
 </p>
 
-</section>
+<a href="contactanos.html" class="cta">
+Solicitar Asesoría
+</a>
+
 </main>
+</section>
 
 <noscript>
 <style>
-#misionBox { opacity:1 !important; transform:none !important; }
+#misionBox {
+opacity: 1 !important;
+transform: none !important;
+}
 </style>
 </noscript>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 const box = document.getElementById("misionBox");
-if (box) requestAnimationFrame(() => box.classList.add("activo"));
+if (box) {
+requestAnimationFrame(() => {
+box.classList.add("activo");
+});
+}
 });
 </script>
 

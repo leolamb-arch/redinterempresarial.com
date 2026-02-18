@@ -1,240 +1,187 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Despacho Contable en México | Red Interempresarial</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Despacho Contable en México | Red Interempresarial</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-    <!-- SEO -->
-    <meta name="description" content="Despacho contable y fiscal en México. Especialistas en asesoría fiscal, contabilidad y estrategia empresarial.">
-    <meta name="keywords" content="contador, despacho contable, asesoría fiscal, impuestos México">
-    <meta name="author" content="Red Interempresarial">
+<!-- SEO -->
+<meta name="description" content="Despacho contable y fiscal en México. Especialistas en asesoría fiscal, contabilidad y estrategia empresarial.">
+<meta name="author" content="Red Interempresarial">
+<meta name="theme-color" content="#0b1a33">
 
-    <!-- Fuente -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Preconnect para velocidad -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <!-- LOGO -->
-        <img
-            id="logo"
-            class="animar animar-logo"
-            src="rilogo.png"
-            alt="Logo del despacho contable Red Interempresarial"
-            loading="lazy"
-        >
+<header>
 
-        <!-- TÍTULOS -->
-        <h1 class="animar animar-titulo">Despacho Contable & Fiscal</h1>
-        <h2 class="animar animar-subtitulo">
-            Red Interempresarial Especialistas Contables - Fiscales
-        </h2>
-    </header>
+<img
+id="logo"
+class="animar animar-logo"
+src="rilogo.png"
+alt="Logo del despacho contable Red Interempresarial"
+width="180"
+height="auto"
+loading="eager"
+decoding="async"
+>
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <main>
+<h1 class="animar animar-titulo">
+Despacho Contable & Fiscal
+</h1>
 
-        <!-- TARJETA PRINCIPAL -->
-        <section class="form-card animar animar-card">
+<h2 class="animar animar-subtitulo">
+Red Interempresarial Especialistas Contables - Fiscales
+</h2>
 
-            <!-- NAVEGACIÓN -->
-            <nav>
-                <ul class="opciones-formulario animar">
+</header>
 
-                    <li class="caja">
-                        <a href="vision.html" aria-label="Ir a nuestra visión">
-                            Nuestra Visión
-                        </a>
-                    </li>
+<main>
 
-                    <li class="caja">
-                        <a href="mision.html" aria-label="Ir a nuestra misión">
-                            Nuestra Misión
-                        </a>
-                    </li>
+<section class="form-card animar animar-card">
 
-                    <li class="caja">
-                        <a href="quienes-somos.html" aria-label="Ir a quienes somos">
-                            ¿Quiénes somos?
-                        </a>
-                    </li>
+<nav>
+<ul class="opciones-formulario">
 
-                    <li class="caja">
-                        <a href="contabilidad.html" aria-label="Ir a servicios de contabilidad">
-                            Contabilidad
-                        </a>
-                    </li>
+<li class="caja"><a href="vision.html">Nuestra Visión</a></li>
+<li class="caja"><a href="mision.html">Nuestra Misión</a></li>
+<li class="caja"><a href="quienes-somos.html">¿Quiénes somos?</a></li>
+<li class="caja"><a href="contabilidad.html">Contabilidad</a></li>
+<li class="caja"><a href="contactanos.html">Asesoría Personalizada</a></li>
 
-                    <li class="caja">
-                        <a href="contactanos.html" aria-label="Ir a asesoría personalizada">
-                            Asesoría Personalizada
-                        </a>
-                    </li>
-                    <li class="caja">
-                     <a 
-        href=https://www.google.com/maps/place/Red+Interempresarial/@20.6730259,-103.3780707,17z/data=!3m1!4b1!4m6!3m5!1s0x8428af3b84dee92f:0x7181a85556259260!8m2!3d20.6730259!4d-103.3780707!16s%2Fg%2F11tn_k31gs?entry=ttu&g_ep=EgoyMDI2MDIxMS4wIKXMDSoASAFQAw%3D%3D 
-        target="_blank"
-        rel="noopener noreferrer"
-            aria-label="Abrir ubicación del despacho en Google Maps">
-        📍 Ubicación del Despacho
-                     </a>
-                    </li>
+<li class="caja">
+<a 
+href="https://www.google.com/maps/place/Red+Interempresarial/"
+target="_blank"
+rel="noopener noreferrer"
+>
+📍 Ubicación del Despacho
+</a>
+</li>
 
+</ul>
+</nav>
 
-                </ul>
-            </nav>
+<form id="contacto" autocomplete="on">
 
-            <!-- FORMULARIO -->
-            <form id="contacto" autocomplete="on">
+<div class="campo">
+<input 
+id="nombre"
+type="text" 
+name="nombre" 
+placeholder="Nombre completo" 
+required
+autocomplete="name"
+>
+</div>
 
-                <div class="campo animar">
-                    
-                    <input 
-                        id="nombre"
-                        type="text" 
-                        name="nombre" 
-                        placeholder="Nombre completo" 
-                        required
-                        autocomplete="name"
-                    >
-                </div>
+<div class="campo">
+<input 
+id="correo"
+type="email" 
+name="correo" 
+placeholder="Correo electrónico" 
+required
+autocomplete="email"
+inputmode="email"
+>
+</div>
 
-                <div class="campo animar">
-                    
-                    <input 
-                        id="correo"
-                        type="email" 
-                        name="correo" 
-                        placeholder="Correo electrónico" 
-                        required
-                        autocomplete="email"
-                    >
-                </div>
+<div class="campo">
+<input
+id="telefono"
+name="telefono"
+type="tel"
+placeholder="(33) 1234 5678"
+inputmode="numeric"
+pattern="[0-9]*"
+required
+autocomplete="tel"
+>
+</div>
 
-                <div class="campo animar">
-                    
-                    <input
-                        id="telefono"
-                        name="telefono"
-                        type="tel"
-                        placeholder="(55) 1234 5678"
-                        inputmode="tel"
-                        required
-                        title="Ingresa tu número con lada mexicana"
-                        autocomplete="tel"
-                    >
-                </div>
+<div class="campo">
+<input 
+id="asunto"
+type="text" 
+name="asunto" 
+placeholder="Asunto" 
+required
+>
+</div>
 
-                <div class="campo animar">
-                    
-                    <input 
-                        id="asunto"
-                        type="text" 
-                        name="asunto" 
-                        placeholder="Asunto" 
-                        required
-                    >
-                </div>
+<button type="submit">
+Enviar información
+</button>
 
-                <button class="animar" type="submit">
-                    Enviar información
-                </button>
+</form>
 
-            </form>
+</section>
 
-        </section>
+</main>
 
-    </main>
+<footer>
+<small>© 2026 Red Interempresarial | Despacho Contable & Fiscal</small>
+</footer>
 
-    <!-- FOOTER -->
-    <footer>
-        <small>© 2026 Red Interempresarial | Despacho Contable & Fiscal</small>
-    </footer>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
 
-    <!-- ACTIVAR ANIMACIONES -->
-    <script>
-        window.addEventListener("load", () => {
-            document.querySelectorAll(".animar").forEach((el, i) => {
-                setTimeout(() => {
-                    el.classList.add("activo");
-                }, i * 80);
-            });
-        });
-    </script>
-
-    <!-- ENVÍO A GOOGLE SHEETS -->
-    <script>
-   document.getElementById("contacto").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const datos = new FormData(this);
-
-    fetch("https://script.google.com/macros/s/AKfycbyX1iAG1v0z1FZ6s20xh6zAPoRoFSRCdsUm-Jlk1RzU-6ssrL7mOHbA3R0JGfl-IxBCmw/exec", {
-        method: "POST",
-        body: datos
-    })
-    .then(() => {
-        alert("Información enviada correctamente");
-        this.reset();
-    })
-    .catch(() => {
-        alert("Hubo un error al enviar");
-    });
+/* Animación ligera optimizada */
+document.querySelectorAll(".animar").forEach((el, i) => {
+setTimeout(() => el.classList.add("activo"), i * 60);
 });
 
-    </script>
+/* Envío formulario optimizado */
+const form = document.getElementById("contacto");
 
-    <!-- SONIDO CLICK -->
-    <audio id="click-sound" preload="auto">
-        <source src="sound-fx/creatorshome-digital-click-357350.mp3" type="audio/mpeg">
-    </audio>
+form.addEventListener("submit", function(e){
+e.preventDefault();
 
-    <script>
-        const clickSound = document.getElementById("click-sound");
+const datos = new FormData(this);
 
-        document.querySelectorAll(".opciones-formulario .caja a")
-            .forEach(opcion => {
-                opcion.addEventListener("click", () => {
-                    clickSound.currentTime = 0;
-                    clickSound.play();
-                });
-            });
-    </script>
+fetch("https://script.google.com/macros/s/AKfycbyX1iAG1v0z1FZ6s20xh6zAPoRoFSRCdsUm-Jlk1RzU-6ssrL7mOHbA3R0JGfl-IxBCmw/exec", {
+method: "POST",
+body: datos
+})
+.then(() => {
+alert("Información enviada correctamente");
+form.reset();
+})
+.catch(() => {
+alert("Hubo un error al enviar");
+});
+});
 
-    <script>
+/* Formato teléfono más ligero */
 const telefono = document.getElementById("telefono");
 
 telefono.addEventListener("input", () => {
-    let valor = telefono.value.replace(/\D/g, "");
+let v = telefono.value.replace(/\D/g,"").slice(0,10);
 
-    // Limitar a 10 dígitos
-    valor = valor.slice(0, 10);
+if(v.length > 6){
+telefono.value = `(${v.slice(0,2)}) ${v.slice(2,6)} ${v.slice(6)}`;
+}else if(v.length > 2){
+telefono.value = `(${v.slice(0,2)}) ${v.slice(2)}`;
+}else{
+telefono.value = v;
+}
+});
 
-    let resultado = "";
-
-    if (valor.length > 0) {
-        resultado += "(" + valor.substring(0, 2);
-    }
-    if (valor.length >= 3) {
-        resultado += ") " + valor.substring(2, 6);
-    }
-    if (valor.length >= 7) {
-        resultado += " " + valor.substring(6, 10);
-    }
-
-    telefono.value = resultado;
 });
 </script>
 
-
 </body>
 </html>
+
 
 
 

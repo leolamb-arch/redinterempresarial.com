@@ -1,27 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>   
-    <meta charset="UTF-8">
-    <title>Asesoría Empresarial | redinterempresarial.com</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Firma especializada en asesoría contable, fiscal y estratégica en México. Planeación fiscal, cumplimiento y crecimiento empresarial.">
-    <link rel="icon" href="favicon.ico">
+<head>
+<meta charset="UTF-8">
+<title>¿Por qué nosotros? | Red Interempresarial</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- SEO -->
+<meta name="description" content="Conoce por qué Red Interempresarial es tu aliado estratégico en asesoría contable y fiscal en México.">
+<meta name="author" content="Red Interempresarial">
+<meta name="theme-color" content="#0b1a33">
 
-    <!-- Fuente -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Open Graph -->
+<meta property="og:title" content="¿Por qué nosotros? | Red Interempresarial">
+<meta property="og:description" content="Firma especializada en asesoría contable y fiscal estratégica en México.">
+<meta property="og:type" content="website">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="segmentos.css">
+<link rel="icon" href="favicon.ico">
+
+<!-- Optimización Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="segmentos.css">
 </head>
 
 <body>
 
-    <main class="contenedor animar">
+<main>
+<section class="contenedor" id="aboutBox">
 
+    <header>
         <h1>¿Por qué nosotros?</h1>
-        <section class="about-section">
-    <div class="about-card">
+    </header>
+
+    <article class="about-card">
+
         <h2>¿Quiénes somos?</h2>
 
         <p>
@@ -37,6 +51,7 @@
         </p>
 
         <h3>¿Qué nos distingue?</h3>
+
         <ul>
             <li>Planeación fiscal estratégica a nivel nacional.</li>
             <li>Cumplimiento impecable ante autoridades fiscales.</li>
@@ -46,22 +61,32 @@
         <p class="closing-statement">
             Nuestro compromiso es brindar certeza financiera, seguridad fiscal y estrategias que impulsen el crecimiento empresarial en cualquier estado del país.
         </p>
-    </div>
+
+    </article>
+
 </section>
+</main>
 
+<!-- Fallback si JS está desactivado -->
+<noscript>
+<style>
+    #aboutBox {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+</style>
+</noscript>
 
-
-    </main>
-
-    <!-- Animación de entrada -->
-    <script>
-        window.addEventListener("load", () => {
-            document.querySelector(".animar").classList.add("activo");
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const box = document.getElementById("aboutBox");
+    if (box) {
+        requestAnimationFrame(() => {
+            box.classList.add("activo");
         });
-    </script>
+    }
+});
+</script>
 
 </body>
 </html>
-
-
-

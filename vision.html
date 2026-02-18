@@ -1,39 +1,174 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>   
-    <meta charset="UTF-8">
-    <title>Asesoría Empresarial | redinterempresarial.com</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+<meta charset="UTF-8">
+<title>Nuestra Visión | Red Interempresarial</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Fuente -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- SEO -->
+<meta name="description" content="Despacho contable y fiscal con enfoque estratégico. Asesoría empresarial profesional en México.">
+<meta name="author" content="Red Interempresarial">
+<meta name="theme-color" content="#0f172a">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="segmentos.css">
+<!-- Open Graph -->
+<meta property="og:title" content="Nuestra Visión | Red Interempresarial">
+<meta property="og:description" content="Asesoría contable y fiscal estratégica en México.">
+<meta property="og:type" content="website">
+
+<!-- Optimización de fuentes -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --primary: #0f172a;
+    --secondary: #b89b64;
+    --light: #f8fafc;
+    --text: #334155;
+    --gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--light);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* HERO */
+.hero {
+    min-height: 100vh;
+    background: var(--gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    position: relative;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(to top, var(--light), transparent);
+}
+
+/* CONTENEDOR */
+.contenedor {
+    max-width: 900px;
+    text-align: center;
+    color: #ffffff;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.contenedor.activo {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    letter-spacing: -1px;
+}
+
+.linea-dorada {
+    width: 70px;
+    height: 3px;
+    background: var(--secondary);
+    margin: 0 auto 40px auto;
+}
+
+.descripcion {
+    font-size: 1.1rem;
+    font-weight: 300;
+    max-width: 750px;
+    margin: auto;
+}
+
+.descripcion strong {
+    color: var(--secondary);
+    font-weight: 600;
+}
+
+.cta {
+    margin-top: 45px;
+    display: inline-block;
+    padding: 14px 35px;
+    border: 1px solid var(--secondary);
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: all 0.4s ease;
+}
+
+.cta:hover {
+    background: var(--secondary);
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .descripcion {
+        font-size: 1rem;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <main class="contenedor animar">
-
+<main>
+<section class="hero">
+    <div class="contenedor" id="visionBox">
         <h1>Nuestra Visión</h1>
+        <div class="linea-dorada"></div>
 
         <p class="descripcion">
-            Nuestra visión es ser el aliado estratégico de las empresas, proporcionando asesoría contable y fiscal de excelencia que impulse su crecimiento sostenible. Nos comprometemos a ofrecer soluciones innovadoras y personalizadas, basadas en un profundo conocimiento del entorno empresarial y fiscal, para ayudar a nuestros clientes a alcanzar sus objetivos con confianza y seguridad. Aspiramos a ser reconocidos por nuestra integridad, profesionalismo y dedicación, contribuyendo al éxito de cada empresa que confía en nosotros.
+            Ser el aliado estratégico de las empresas mexicanas, proporcionando 
+            asesoría contable y fiscal de excelencia que impulse su crecimiento sostenible.
             <br><br>
-            Ofrecemos una atención <strong>100% personalizada</strong>, respaldada por nuestra
-            base de conocimiento, experiencia y compromiso, como garantía de un
-            servicio completamente profesional.
+            Diseñamos soluciones innovadoras y personalizadas basadas en un profundo 
+            conocimiento del entorno empresarial y normativo.
+            <br><br>
+            Ofrecemos una atención <strong>100% personalizada</strong>, respaldada por 
+            experiencia, criterio técnico y compromiso absoluto con cada cliente.
         </p>
-        
-    </main>
 
-    <!-- Animación de entrada -->
-    <script>
-        window.addEventListener("load", () => {
-            document.querySelector(".animar").classList.add("activo");
+        <a href="#contacto" class="cta" aria-label="Solicitar asesoría empresarial">
+            Solicitar Asesoría
+        </a>
+    </div>
+</section>
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const box = document.getElementById("visionBox");
+    if (box) {
+        requestAnimationFrame(() => {
+            box.classList.add("activo");
         });
-    </script>
+    }
+});
+</script>
 
 </body>
 </html>

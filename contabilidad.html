@@ -17,31 +17,82 @@
 
 <body>
 
-   <main class="contenedor animar">
+    <main class="process-wrapper">
 
+    <section class="process-hero">
         <h1>¿Cómo llevamos la contabilidad de nuestros clientes?</h1>
+        <p class="process-subtitle">
+            Modelo estructurado, estratégico y alineado con la normatividad fiscal vigente en México.
+        </p>
+    </section>
 
-    <p class="descripcion">
-        En nuestro despacho implementamos un modelo de gestión contable estructurado, transparente y alineado con la normatividad fiscal vigente en México. Nuestro proceso inicia con un diagnóstico integral de la situación financiera y fiscal de cada cliente, permitiéndonos diseñar una estrategia contable personalizada acorde a su actividad económica, régimen fiscal y objetivos empresariales.
-        <br><br>
-        Trabajamos bajo un esquema de contabilidad electrónica conforme a los lineamientos del Servicio de Administración Tributaria (SAT), asegurando el correcto registro de pólizas, conciliaciones bancarias, determinación de impuestos y generación de estados financieros oportunos. Utilizamos herramientas tecnológicas especializadas que garantizan precisión, trazabilidad y resguardo seguro de la información.
-        <br><br>
-        Nuestro enfoque se basa en la contabilidad preventiva y estratégica. No solo registramos operaciones, sino que analizamos indicadores financieros, identificamos áreas de optimización fiscal y brindamos recomendaciones que fortalecen la toma de decisiones empresariales.
-        <br><br>
-        Cada cliente cuenta con acompañamiento profesional continuo, comunicación clara y reportes periódicos que permiten conocer en todo momento la situación financiera de su empresa. De esta manera, aseguramos cumplimiento, control y crecimiento sostenible dentro del marco legal.
+    <section class="process-section">
+
+        <div class="process-line"></div>
+
+        <div class="process-step">
+            <span class="step-number">01</span>
+            <h3>Diagnóstico Integral</h3>
+            <p>
+                Analizamos la situación financiera y fiscal del cliente para diseñar una estrategia contable personalizada acorde a su régimen y objetivos empresariales.
+            </p>
+        </div>
+
+        <div class="process-step">
+            <span class="step-number">02</span>
+            <h3>Contabilidad Electrónica</h3>
+            <p>
+                Implementamos registros contables conforme a los lineamientos del SAT, conciliaciones bancarias, determinación de impuestos y generación de estados financieros oportunos.
+            </p>
+        </div>
+
+        <div class="process-step">
+            <span class="step-number">03</span>
+            <h3>Análisis Estratégico</h3>
+            <p>
+                Evaluamos indicadores financieros y detectamos áreas de optimización fiscal para fortalecer la toma de decisiones empresariales.
+            </p>
+        </div>
+
+        <div class="process-step">
+            <span class="step-number">04</span>
+            <h3>Acompañamiento Continuo</h3>
+            <p>
+                Brindamos seguimiento permanente, comunicación clara y reportes periódicos que garantizan control y crecimiento sostenible.
+            </p>
+        </div>
+
+    </section>
+
+    <p class="closing-statement">
+        Nuestro compromiso es brindar certeza financiera, seguridad fiscal y estrategias que impulsen el crecimiento empresarial en cualquier estado del país.
     </p>
 
-    </main>
+</main>
+
+
     <!-- Animación de entrada -->
     <script>
         window.addEventListener("load", () => {
             document.querySelector(".animar").classList.add("activo");
         });
     </script>
+<script>
+const steps = document.querySelectorAll(".process-step");
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+        }
+    });
+}, { threshold: 0.2 });
+
+steps.forEach(step => observer.observe(step));
+</script>
 
 </body>
 </html>
-
 
 
 

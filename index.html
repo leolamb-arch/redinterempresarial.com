@@ -82,7 +82,7 @@ placeholder="Correo electrónico" required autocomplete="email">
 <input id="telefono" name="telefono" type="tel"
 placeholder="(55) 1234 5678"
 inputmode="numeric"
-pattern="[0-9]*"
+pattern="\(\d{2}\)\s\d{4}\s\d{4}"
 required autocomplete="tel">
 </div>
 
@@ -170,6 +170,7 @@ clickSound.play().catch(()=>{});
 
 </body>
 </html>
+
 
 
 

@@ -1,38 +1,70 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>   
-    <meta charset="UTF-8">
-    <title>Asesoría Empresarial | redinterempresarial.com</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+<meta charset="UTF-8">
+<title>Nuestra Misión | Red Interempresarial</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Fuente -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- SEO -->
+<meta name="description" content="Conoce la misión de Red Interempresarial. Servicios contables y fiscales estratégicos en México.">
+<meta name="author" content="Red Interempresarial">
+<meta name="theme-color" content="#0b1a33">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="segmentos.css">
+<!-- Open Graph -->
+<meta property="og:title" content="Nuestra Misión | Red Interempresarial">
+<meta property="og:description" content="Servicios contables y fiscales de alta calidad en México.">
+<meta property="og:type" content="website">
+
+<!-- Optimización de fuentes -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="segmentos.css">
 </head>
 
 <body>
 
-    <main class="contenedor animar">
+<main>
+<section class="contenedor" id="misionBox">
 
-        <h1>Nuestra Misión</h1>
+    <h1>Nuestra Misión</h1>
 
-        <p class="descripcion">
-            Brindar servicios contables y fiscales de <strong>alta calidad, confiables y personalizados</strong>, que permitan a nuestros clientes cumplir con sus obligaciones fiscales y contables de manera eficiente y oportuna, contribuyendo así al éxito y crecimiento de sus negocios.
-            Nos distinguimos por un servicio personalizado, visión preventiva y acompañamiento continuo, convirtiéndonos en un aliado estratégico para la toma de decisiones empresariales.
-            <br><br>
-            Más que contadores, somos socios estratégicos comprometidos con el crecimiento sostenible y el éxito de cada uno de nuestros clientes.
-        </p>
+    <p class="descripcion">
+        Brindar servicios contables y fiscales de 
+        <strong>alta calidad, confiables y personalizados</strong>, 
+        que permitan a nuestros clientes cumplir con sus obligaciones fiscales y contables 
+        de manera eficiente y oportuna, contribuyendo así al éxito y crecimiento de sus negocios.
+        <br><br>
+        Nos distinguimos por un servicio personalizado, visión preventiva y acompañamiento continuo, 
+        convirtiéndonos en un aliado estratégico para la toma de decisiones empresariales.
+        <br><br>
+        Más que contadores, somos socios estratégicos comprometidos con el crecimiento sostenible 
+        y el éxito de cada uno de nuestros clientes.
+    </p>
 
-    </main>
+</section>
+</main>
 
-    <!-- Animación de entrada -->
-    <script>
-        window.addEventListener("load", () => {
-            document.querySelector(".animar").classList.add("activo");
+<noscript>
+    <style>
+        .contenedor {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+    </style>
+</noscript>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const box = document.getElementById("misionBox");
+    if (box) {
+        requestAnimationFrame(() => {
+            box.classList.add("activo");
         });
-    </script>
+    }
+});
+</script>
 
 </body>
 </html>

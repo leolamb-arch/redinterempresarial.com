@@ -8,19 +8,19 @@
 }
 
 body {
-    font-family: Inter, system-ui, sans-serif;
-    min-height: 100vh;
-    padding: 60px 24px;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    color: #ffffff;
 
-    background:
-        radial-gradient(circle at 15% -10%, rgba(255,255,255,0.18), transparent 50%),
-        radial-gradient(circle at 85% 0%, rgba(37,99,235,0.18), transparent 50%),
-        radial-gradient(circle at 50% 120%, rgba(126,87,15,0.15), transparent 60%),
-        linear-gradient(180deg, #0b1a33 0%, #081225 50%, #050b18 100%);
+    background-color: #0b1a33;
 
-    color: #e5e7eb;
-    text-align: center;
-    overflow-x: hidden;
+    /* Gradiente profundo */
+    background-image:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.03) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(255,255,255,0.02) 0%, transparent 40%),
+        linear-gradient(180deg, #0b1a33 0%, #091528 100%);
+
+    background-attachment: fixed;
 }
 
 /* ================================
@@ -258,5 +258,6 @@ button:active {
     opacity: 1;
     transform: translateY(0);
 }
+
 
 

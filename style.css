@@ -258,6 +258,13 @@ button:active {
     transform: translateY(0);
 }
 
+#logo {
+    display: block;
+    margin: 0 auto 25px auto;
+    max-width: 180px;
+}
+
+
 
 
 

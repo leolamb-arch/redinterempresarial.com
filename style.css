@@ -114,11 +114,15 @@ h2 {
 /* ================================
    TARJETA PRINCIPAL
 ================================ */
-.form-card {
+
+ .form-card {
     position: relative;
+    width: 100%;
+    max-width: 1000px;   /* puedes probar 900px o 1100px */
     padding: 44px 40px;
     border-radius: 24px;
     margin: 40px auto;
+}   
 
     background: linear-gradient(180deg, #ffffff, #f9fafb);
     color: var(--color-text-dark);
@@ -253,4 +257,5 @@ button:active {
     opacity: 1;
     transform: translateY(0);
 }
+
 

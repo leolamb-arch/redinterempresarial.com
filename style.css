@@ -44,7 +44,7 @@ body {
    CONTENEDOR GENERAL
 ================================ */
 body > * {
-    max-width: 980px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -253,3 +253,4 @@ button:active {
     opacity: 1;
     transform: translateY(0);
 }
+

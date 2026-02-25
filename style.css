@@ -29,17 +29,27 @@ body {
     display: flex;
     flex-direction: column;
 
-    background-color: var(--color-bg-primary);
-    background-image:
-        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px),
-        linear-gradient(180deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
-    background-size: 40px 40px, 40px 40px, cover;
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(212,175,55,0.08),
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(126,87,15,0.10),
+            transparent 50%
+        ),
+        linear-gradient(
+            160deg,
+            #0b1a33 0%,
+            #091528 50%,
+            #070f1d 100%
+        );
 
+    background-attachment: fixed;
     -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
 }
-
 /* ================================
    CONTENEDOR GENERAL
 ================================ */
@@ -256,6 +266,7 @@ button:active {
     opacity: 1;
     transform: translateY(0);
 }
+
 
 
 

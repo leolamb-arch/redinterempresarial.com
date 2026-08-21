@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Política de Seguridad de Contenido (CSP) para prevenir XSS y ejecuciones no autorizadas -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; frame-src https://www.google.com; img-src 'self' data:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://www.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; frame-src https://www.google.com; connect-src 'self' https://script.google.com https://script.googleusercontent.com; img-src 'self' data:;">
     
     <title>Red Interempresarial | Despacho Contable & Fiscal</title>
     
@@ -12,8 +11,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Fijado a una versión fija (0.294.0) con SRI y atributo crossorigin -->
     <script src="https://unpkg.com/lucide@0.294.0/dist/umd/lucide.min.js" crossorigin="anonymous"></script>
+
+    <!-- 1. Cargar la API de Google reCAPTCHA v3 -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6LddDJItAAAAAOdShUxmsggdfhZX2pFY3QqrKYGT"></script>
     
     <style>
         :root {
@@ -99,7 +100,6 @@
         .gold-text { color: var(--color-accent-gold); }
         .correo-enlace { color: var(--color-accent-gold); text-decoration: none; font-weight: 600; word-break: break-all; }
 
-        /* Campo Honeypot para evitar spambots */
         .website-field-hp { display: none !important; }
 
         footer { text-align: center; padding: 40px 0; border-top: 1px solid rgba(255, 255, 255, 0.05); color: var(--color-text-muted); font-size: 13px; }
@@ -232,25 +232,30 @@
                 <div class="glass-card form-card">
                     <h3>Solicita una Consulta Inicial</h3>
                     <br>
-                    <form id="contactForm">
-                        <!-- Campo Trampa (Honeypot) contra Bots -->
-                        <div class="website-field-hp">
-                            <input type="text" name="website_hp" tabindex="-1" autocomplete="off">
+                    <form id="contactForm" autocomplete="off">
+                        <div class="website-field-hp" aria-hidden="true">
+                            <input type="text" name="b_website" tabindex="-1" autocomplete="off">
                         </div>
 
                         <div class="campo">
-                            <input type="text" name="nombre" placeholder="Nombre completo" maxlength="100" required>
+                            <input type="text" name="nombre" id="nombre" placeholder="Nombre completo" maxlength="80" required 
+                                   pattern="^(?!.*(.)\1{3,})[a-zA-ZáéíóúÁÉÍÓÚñÑ]+(\s+[a-zA-ZáéíóúÁÉÍÓÚñÑ]+)+$" 
+                                   title="Ingresa tu nombre y apellido reales (sin letras repetidas sin sentido)">
                         </div>
                         <div class="campo">
-                            <input type="email" name="correo" placeholder="Correo electrónico" maxlength="100" required>
+                            <input type="email" name="correo" id="correo" placeholder="Correo electrónico validado" maxlength="100" required>
                         </div>
                         <div class="campo">
-                            <input type="tel" name="telefono" placeholder="Teléfono de contacto" maxlength="20" required>
+                            <input type="tel" name="telefono" id="telefono" placeholder="Teléfono de contacto (10 dígitos)" 
+                                   maxlength="15" required pattern="^[0-9]{10,15}$" 
+                                   title="Ingresa un número telefónico válido de 10 a 15 dígitos">
                         </div>
                         <div class="campo">
-                            <input type="text" name="asunto" placeholder="Asunto / Servicio de interés" maxlength="150" required>
+                            <input type="text" name="asunto" id="asunto" placeholder="Asunto o consulta detallada (mínimo 15 caracteres)" 
+                                   minlength="15" maxlength="200" required 
+                                   title="Explica brevemente tu consulta (mínimo 15 caracteres)">
                         </div>
-                        <button type="submit">Enviar Información</button>
+                        <button type="submit" id="submitBtn">Enviar Información</button>
                     </form>
                 </div>
 
@@ -259,7 +264,6 @@
                         <h3><i data-lucide="map-pin"></i> Ubicación del Despacho</h3>
                         <p>Nuestra oficina central atiende corporativos en toda la República Mexicana.</p>
                         <div class="map-placeholder" style="padding: 0; overflow: hidden; height: 250px;">
-                            <!-- sandbox restrictivo para iframe de mapas -->
                             <iframe 
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.1444654767115!2d-103.3780707!3d20.6730259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428af3b84dee92f%3A0x7181a85556259260!2sRed%20Interempresarial!5e0!3m2!1ses!2smx!4v1710000000000!5m2!1ses!2smx" 
                                 width="100%" 
@@ -292,55 +296,135 @@
         <p>&copy; 2026 Red Interempresarial | Despacho Contable & Fiscal. Todos los derechos reservados.</p>
     </footer>
 
-    <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbyX1iAG1v0z1FZ6s20xh6zAPoRoFSRCdsUm-Jlk1RzU-6ssrL7mOHbA3R0JGfl-IxBCmw/exec';
+<script>
+    if (window.lucide) { lucide.createIcons(); }
 
-        window.addEventListener('DOMContentLoaded', () => {
-            if (window.lucide) {
-                lucide.createIcons();
+    // 1. URL de Google Apps Script
+    const getEndpoint = () => 'https://script.google.com/macros/s/AKfycbzE8W1nFP6gKrJknWCN6W5sS4FCaJy-ur7-WMX-7sLtKDa47XZRGSuAPRvpyLSyRgTqEQ/exec';
+    
+    // 2. Clave de sitio reCAPTCHA v3
+    const RECAPTCHA_SITE_KEY = '6LdKHpItAAAAANLpCt1SVrkGW5lHcXUl3hAO3R_I'; 
+
+    const DISCARDABLE_DOMAINS = ['yopmail.com', 'mailinator.com', '10minutemail.com', 'tempmail.com', 'guerrillamail.com'];
+
+    // 3. Validaciones de formulario (Antispam y longitud)
+    function esEntradaValida(formData) {
+        const correo = formData.get('correo').toLowerCase().trim();
+        const dominioCorreo = correo.split('@')[1];
+
+        // Bloquear correos desechables
+        if (DISCARDABLE_DOMAINS.includes(dominioCorreo)) {
+            alert('Por favor utiliza un correo corporativo o personal válido.');
+            return false;
+        }
+
+        // Validar teléfono: Solo números y entre 10 y 13 dígitos
+        const telefono = formData.get('telefono').trim();
+        const regexTelefonoValido = /^[0-9]{10,13}$/;
+        if (!regexTelefonoValido.test(telefono) || /^(0123456789|1234567890|0{10,}|1{10,}|9{10,})$/.test(telefono)) {
+            alert('Por favor ingresa un teléfono válido de 10 dígitos.');
+            return false;
+        }
+
+        // Validar Nombre: Mínimo 3 caracteres
+        const nombre = formData.get('nombre').trim();
+        if (nombre.length < 3) {
+            alert('Por favor ingresa un nombre válido.');
+            return false;
+        }
+
+        // Validar Asunto: Mínimo 10 caracteres
+        const asunto = formData.get('asunto').trim();
+        if (asunto.length < 10) {
+            alert('Por favor describe tu consulta con un poco más de detalle (mínimo 10 caracteres).');
+            return false;
+        }
+
+        return true;
+    }
+
+    async function enviarDatos(payload, btnSubmit, form) {
+        btnSubmit.innerText = 'Enviando...';
+
+        const params = new URLSearchParams();
+        for (const key in payload) {
+            params.append(key, payload[key]);
+        }
+
+        try {
+            await fetch(getEndpoint(), {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: params.toString()
+            });
+
+            alert('¡Gracias! Tu mensaje ha sido enviado correctamente.');
+            form.reset();
+        } catch (err) {
+            console.error('Error al enviar:', err);
+            alert('Ocurrió un error al procesar el envío. Revisa tu conexión.');
+        } finally {
+            btnSubmit.disabled = false;
+            btnSubmit.innerText = 'Enviar Información';
+        }
+    }
+
+    function obtenerRecaptchaToken() {
+        return new Promise((resolve) => {
+            if (typeof grecaptcha === 'undefined' || !RECAPTCHA_SITE_KEY) {
+                resolve(null);
+                return;
             }
 
-            const menuToggle = document.getElementById('menuToggle');
-            const navMenu = document.getElementById('navMenu');
+            const timeout = setTimeout(() => {
+                console.warn('reCAPTCHA tardó demasiado. Continuando sin token...');
+                resolve(null);
+            }, 3000);
 
-            menuToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-            });
-
-            document.querySelectorAll('.nav-menu a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navMenu.classList.remove('active');
-                });
-            });
-
-            const form = document.getElementById('contactForm');
-            const btnSubmit = form.querySelector('button[type="submit"]');
-
-            form.addEventListener('submit', e => {
-                e.preventDefault();
-                
-                // Si el campo trampa (honeypot) fue llenado, es un bot de SPAM.
-                if (form.website_hp && form.website_hp.value !== "") {
-                    return false;
-                }
-
-                btnSubmit.disabled = true;
-                btnSubmit.innerText = 'Enviando...';
-
-                fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-                    .then(response => {
-                        alert('¡Gracias! Tu información ha sido enviada con éxito.');
-                        form.reset();
+            grecaptcha.ready(() => {
+                grecaptcha.execute(RECAPTCHA_SITE_KEY, {action: 'submit_contact'})
+                    .then((token) => {
+                        clearTimeout(timeout);
+                        resolve(token);
                     })
-                    .catch(error => {
-                        alert('Ocurrió un error al enviar el formulario.');
-                    })
-                    .finally(() => {
-                        btnSubmit.disabled = false;
-                        btnSubmit.innerText = 'Enviar Información';
+                    .catch((err) => {
+                        clearTimeout(timeout);
+                        console.warn('Error al ejecutar reCAPTCHA:', err);
+                        resolve(null);
                     });
             });
         });
-    </script>
+    }
+
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const form = this;
+        const btnSubmit = document.getElementById('submitBtn');
+        const formData = new FormData(form);
+
+        if (formData.get('b_website')) return false;
+        if (!esEntradaValida(formData)) return false;
+
+        btnSubmit.disabled = true;
+        btnSubmit.innerText = 'Verificando...';
+
+        const payload = {
+            nombre: formData.get('nombre'),
+            correo: formData.get('correo'),
+            telefono: formData.get('telefono'),
+            asunto: formData.get('asunto')
+        };
+
+        const token = await obtenerRecaptchaToken();
+        if (token) {
+            payload['g-recaptcha-response'] = token;
+        }
+
+        await enviarDatos(payload, btnSubmit, form);
+    });
+</script>
 </body>
 </html>

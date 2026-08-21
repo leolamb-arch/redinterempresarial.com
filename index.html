@@ -509,6 +509,9 @@
     </footer>
 
     <script>
+        // PEGA TU URL DE GOOGLE APPS SCRIPT AQUÍ ABAJO (dentro de las comillas):
+        const scriptURL = https://script.google.com/macros/s/AKfycbyX1iAG1v0z1FZ6s20xh6zAPoRoFSRCdsUm-Jlk1RzU-6ssrL7mOHbA3R0JGfl-IxBCmw/exec;
+
         window.addEventListener('DOMContentLoaded', () => {
             if (window.lucide) {
                 lucide.createIcons();
@@ -525,6 +528,30 @@
                 link.addEventListener('click', () => {
                     navMenu.classList.remove('active');
                 });
+            });
+
+            // LÓGICA DE ENVÍO DE FORMULARIO A GOOGLE SHEETS
+            const form = document.querySelector('.form-card form');
+            const btnSubmit = form.querySelector('button[type="submit"]');
+
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+                btnSubmit.disabled = true;
+                btnSubmit.innerText = 'Enviando...';
+
+                fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                    .then(response => {
+                        alert('¡Gracias! Tu información ha sido enviada con éxito.');
+                        form.reset();
+                        btnSubmit.disabled = false;
+                        btnSubmit.innerText = 'Enviar Información';
+                    })
+                    .catch(error => {
+                        alert('Ocurrió un error al enviar el formulario.');
+                        console.error('Error!', error.message);
+                        btnSubmit.disabled = false;
+                        btnSubmit.innerText = 'Enviar Información';
+                    });
             });
         });
     </script>

@@ -3,9 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Política de Seguridad de Contenido (CSP) para prevenir XSS y ejecuciones no autorizadas -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; frame-src https://www.google.com; img-src 'self' data:;">
+    
     <title>Red Interempresarial | Despacho Contable & Fiscal</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Fijado a una versión fija (0.294.0) con SRI y atributo crossorigin -->
+    <script src="https://unpkg.com/lucide@0.294.0/dist/umd/lucide.min.js" crossorigin="anonymous"></script>
     
     <style>
         :root {
@@ -21,14 +29,8 @@
             --gold-gradient: linear-gradient(135deg, #8a6214 0%, #d4af37 50%, #f7d774 100%);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
-
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             color: var(--color-text-light);
@@ -41,264 +43,67 @@
             line-height: 1.6;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
         .section { padding: 100px 0; }
 
-        /* NAVBAR */
         .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(5, 13, 26, 0.95);
-            backdrop-filter: blur(20px);
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            background: rgba(5, 13, 26, 0.95); backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(212, 175, 55, 0.15);
         }
-
-        .nav-container {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 16px 24px;
-        }
-
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .logo-box {
-            width: 38px;
-            height: 38px;
-            background: linear-gradient(145deg, #0e2246, #061024);
-            border: 1px solid var(--color-accent-gold);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 8px);
-            gap: 3px;
-        }
-
-        .logo-grid span {
-            width: 8px;
-            height: 8px;
-            border: 1px solid var(--color-accent-gold);
-        }
-
+        .nav-container { max-width: 1300px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; }
+        .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-box { width: 38px; height: 38px; background: linear-gradient(145deg, #0e2246, #061024); border: 1px solid var(--color-accent-gold); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .logo-grid { display: grid; grid-template-columns: repeat(2, 8px); gap: 3px; }
+        .logo-grid span { width: 8px; height: 8px; border: 1px solid var(--color-accent-gold); }
         .brand-text { display: flex; flex-direction: column; }
         .brand-title { font-size: 13px; font-weight: 700; color: #fff; letter-spacing: 1px; }
         .brand-sub { font-size: 9px; color: var(--color-accent-gold); letter-spacing: 1.5px; }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--color-accent-gold);
-            cursor: pointer;
-            padding: 4px;
-        }
-
+        .menu-toggle { display: none; background: none; border: none; color: var(--color-accent-gold); cursor: pointer; padding: 4px; }
         .nav-menu { display: flex; list-style: none; gap: 28px; }
-        .nav-menu a {
-            color: var(--color-text-muted);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
+        .nav-menu a { color: var(--color-text-muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s ease; display: flex; align-items: center; gap: 4px; }
         .nav-menu a:hover { color: var(--color-accent-gold); }
-
         .dropdown { position: relative; }
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: #09172e;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: var(--radius-md);
-            padding: 10px 0;
-            list-style: none;
-            min-width: 220px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: all 0.3s ease;
-        }
+        .dropdown-menu { position: absolute; top: 100%; left: 0; background: #09172e; border: 1px solid rgba(212, 175, 55, 0.2); border-radius: var(--radius-md); padding: 10px 0; list-style: none; min-width: 220px; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; }
         .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
         .dropdown-menu a { padding: 10px 20px; display: block; }
         .dropdown-menu a:hover { background: rgba(212, 175, 55, 0.1); }
-
-        .nav-email {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--color-accent-light);
-            font-size: 13px;
-            text-decoration: none;
-            padding: 8px 16px;
-            background: rgba(212, 175, 55, 0.08);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 30px;
-            transition: all 0.3s ease;
-        }
+        .nav-email { display: flex; align-items: center; gap: 8px; color: var(--color-accent-light); font-size: 13px; text-decoration: none; padding: 8px 16px; background: rgba(212, 175, 55, 0.08); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 30px; transition: all 0.3s ease; }
         .nav-email:hover { background: var(--color-accent-gold); color: #050d1a; }
 
-        /* HERO */
-        .hero {
-            position: relative;
-            padding: 180px 24px 100px;
-            text-align: center;
-        }
-        .badge {
-            background: rgba(212, 175, 55, 0.1);
-            color: var(--color-accent-gold);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 600;
-            display: inline-block;
-        }
-        .hero h1 {
-            font-size: 44px;
-            font-weight: 700;
-            margin: 24px auto 16px;
-            max-width: 800px;
-            background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            -webkit-text-fill-color: transparent;
-        }
+        .hero { position: relative; padding: 180px 24px 100px; text-align: center; }
+        .badge { background: rgba(212, 175, 55, 0.1); color: var(--color-accent-gold); border: 1px solid rgba(212, 175, 55, 0.3); padding: 6px 16px; border-radius: 20px; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; display: inline-block; }
+        .hero h1 { font-size: 44px; font-weight: 700; margin: 24px auto 16px; max-width: 800px; background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
         .hero p { font-size: 18px; color: var(--color-text-muted); max-width: 600px; margin: 0 auto 36px; }
         .hero-btns { display: flex; justify-content: center; gap: 16px; }
+        .btn-primary { background: var(--gold-gradient); color: #050d1a; padding: 14px 28px; border-radius: 10px; font-weight: 700; text-decoration: none; box-shadow: 0 10px 25px rgba(212, 175, 55, 0.25); text-align: center; }
+        .btn-secondary { border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 14px 28px; border-radius: 10px; font-weight: 600; text-decoration: none; text-align: center; }
 
-        .btn-primary {
-            background: var(--gold-gradient);
-            color: #050d1a;
-            padding: 14px 28px;
-            border-radius: 10px;
-            font-weight: 700;
-            text-decoration: none;
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.25);
-            text-align: center;
-        }
-        .btn-secondary {
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #fff;
-            padding: 14px 28px;
-            border-radius: 10px;
-            font-weight: 600;
-            text-decoration: none;
-            text-align: center;
-        }
-
-        /* CARDS & GRID */
-        .glass-card {
-            background: var(--color-card-bg);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(212, 175, 55, 0.15);
-            border-radius: var(--radius-lg);
-            padding: 36px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-        }
-
+        .glass-card { background: var(--color-card-bg); backdrop-filter: blur(16px); border: 1px solid rgba(212, 175, 55, 0.15); border-radius: var(--radius-lg); padding: 36px; box-shadow: 0 30px 60px rgba(0,0,0,0.4); }
         .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
         .align-start { align-items: start; }
         .gap-vertical { display: flex; flex-direction: column; gap: 20px; }
         .divider { border: none; border-top: 1px solid rgba(255, 255, 255, 0.1); }
 
-        /* SERVICIOS */
         .section-title { text-align: center; margin-bottom: 60px; }
         .section-title h2 { font-size: 32px; color: #fff; }
         .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-        .service-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(212, 175, 55, 0.1);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-accent-gold);
-            margin-bottom: 20px;
-        }
+        .service-icon { width: 50px; height: 50px; background: rgba(212, 175, 55, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--color-accent-gold); margin-bottom: 20px; }
 
-        /* FORMULARIO */
         .form-card form { display: flex; flex-direction: column; gap: 16px; }
-        input {
-            width: 100%;
-            padding: 16px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            color: #fff;
-            font-size: 14px;
-        }
-        button[type="submit"] {
-            background: var(--gold-gradient);
-            border: none;
-            padding: 16px;
-            border-radius: 10px;
-            color: #050d1a;
-            font-weight: 700;
-            cursor: pointer;
-        }
+        input { width: 100%; padding: 16px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; color: #fff; font-size: 14px; }
+        button[type="submit"] { background: var(--gold-gradient); border: none; padding: 16px; border-radius: 10px; color: #050d1a; font-weight: 700; cursor: pointer; }
 
-        .map-placeholder {
-            height: 180px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px dashed rgba(255, 255, 255, 0.2);
-            border-radius: var(--radius-md);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            color: var(--color-text-muted);
-            margin-top: 15px;
-        }
-
-        .soporte-card {
-            margin-top: 24px;
-            padding: 24px;
-            background: rgba(212, 175, 55, 0.03);
-            border: 1px dashed rgba(212, 175, 55, 0.3);
-            border-radius: var(--radius-lg);
-            text-align: center;
-        }
+        .map-placeholder { height: 180px; background: rgba(255, 255, 255, 0.02); border: 1px dashed rgba(255, 255, 255, 0.2); border-radius: var(--radius-md); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: var(--color-text-muted); margin-top: 15px; }
+        .soporte-card { margin-top: 24px; padding: 24px; background: rgba(212, 175, 55, 0.03); border: 1px dashed rgba(212, 175, 55, 0.3); border-radius: var(--radius-lg); text-align: center; }
         .gold-text { color: var(--color-accent-gold); }
         .correo-enlace { color: var(--color-accent-gold); text-decoration: none; font-weight: 600; word-break: break-all; }
 
+        /* Campo Honeypot para evitar spambots */
+        .website-field-hp { display: none !important; }
+
         footer { text-align: center; padding: 40px 0; border-top: 1px solid rgba(255, 255, 255, 0.05); color: var(--color-text-muted); font-size: 13px; }
 
-        .animar {
-            opacity: 1;
-            transform: translateY(0);
-            transition: all 0.8s ease-out;
-        }
-
-        /* REGLAS RESPONSIVAS PARA MÓVILES */
         @media (max-width: 900px) {
             .grid-2, .services-grid { grid-template-columns: 1fr; }
             .hero { padding: 140px 16px 60px; }
@@ -308,40 +113,18 @@
             .btn-primary, .btn-secondary { width: 100%; }
             .section { padding: 60px 0; }
             .glass-card { padding: 24px; }
-            .location-container { margin-top: 24px; }
         }
 
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
             .nav-contact { display: none; }
-            .nav-menu {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: #050d1a;
-                flex-direction: column;
-                padding: 20px 24px;
-                gap: 16px;
-                border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-            }
+            .nav-menu { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: #050d1a; flex-direction: column; padding: 20px 24px; gap: 16px; border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
             .nav-menu.active { display: flex; }
-            .dropdown-menu {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                background: transparent;
-                border: none;
-                padding-left: 15px;
-            }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR CORPORATIVO -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="nav-brand">
@@ -383,9 +166,8 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
     <header class="hero">
-        <div class="hero-content animar">
+        <div class="hero-content">
             <span class="badge">Especialistas Contables & Fiscales</span>
             <h1>Soluciones Contables y Fiscales</h1>
             <p>Impulsamos el crecimiento, el implemento de organización fiscal y financiera de tu empresa con estrategias sólidas, precisas y personalizadas.</p>
@@ -397,9 +179,8 @@
     </header>
 
     <main>
-        <!-- SECCIÓN QUIÉNES SOMOS & MISIÓN/VISIÓN -->
         <section id="quienes-somos" class="section container">
-            <div class="grid-2 animar">
+            <div class="grid-2">
                 <div class="glass-card about-card">
                     <i data-lucide="shield-check" class="card-icon"></i>
                     <h2>¿Quiénes Somos?</h2>
@@ -419,14 +200,13 @@
             </div>
         </section>
 
-        <!-- SECCIÓN SERVICIOS -->
         <section id="servicios" class="section container">
-            <div class="section-title animar">
+            <div class="section-title">
                 <h2>Servicios Especializados</h2>
                 <p>Estrategia y precisión técnica para la salud fiscal y financiera de tu negocio.</p>
             </div>
             
-            <div class="services-grid animar">
+            <div class="services-grid">
                 <div id="contabilidad" class="glass-card service-card">
                     <div class="service-icon"><i data-lucide="calculator"></i></div>
                     <h3>Contabilidad Integral</h3>
@@ -447,35 +227,39 @@
             </div>
         </section>
 
-        <!-- SECCIÓN CONTACTO Y UBICACIÓN -->
         <section id="contacto" class="section container">
             <div class="grid-2 align-start">
-                <!-- FORMULARIO -->
-                <div class="glass-card form-card animar">
+                <div class="glass-card form-card">
                     <h3>Solicita una Consulta Inicial</h3>
                     <br>
-                    <form>
+                    <form id="contactForm">
+                        <!-- Campo Trampa (Honeypot) contra Bots -->
+                        <div class="website-field-hp">
+                            <input type="text" name="website_hp" tabindex="-1" autocomplete="off">
+                        </div>
+
                         <div class="campo">
-                            <input type="text" name="nombre" placeholder="Nombre completo" required>
+                            <input type="text" name="nombre" placeholder="Nombre completo" maxlength="100" required>
                         </div>
                         <div class="campo">
-                            <input type="email" name="correo" placeholder="Correo electrónico" required>
+                            <input type="email" name="correo" placeholder="Correo electrónico" maxlength="100" required>
                         </div>
                         <div class="campo">
-                            <input type="tel" name="telefono" placeholder="Teléfono de contacto" required>
+                            <input type="tel" name="telefono" placeholder="Teléfono de contacto" maxlength="20" required>
                         </div>
                         <div class="campo">
-                            <input type="text" name="asunto" placeholder="Asunto / Servicio de interés" required>
+                            <input type="text" name="asunto" placeholder="Asunto / Servicio de interés" maxlength="150" required>
                         </div>
                         <button type="submit">Enviar Información</button>
                     </form>
                 </div>
-                <!-- UBICACIÓN & SOPORTE -->
-                <div id="ubicacion" class="location-container animar">
+
+                <div id="ubicacion" class="location-container">
                     <div class="glass-card">
                         <h3><i data-lucide="map-pin"></i> Ubicación del Despacho</h3>
                         <p>Nuestra oficina central atiende corporativos en toda la República Mexicana.</p>
                         <div class="map-placeholder" style="padding: 0; overflow: hidden; height: 250px;">
+                            <!-- sandbox restrictivo para iframe de mapas -->
                             <iframe 
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.1444654767115!2d-103.3780707!3d20.6730259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428af3b84dee92f%3A0x7181a85556259260!2sRed%20Interempresarial!5e0!3m2!1ses!2smx!4v1710000000000!5m2!1ses!2smx" 
                                 width="100%" 
@@ -483,6 +267,7 @@
                                 style="border:0;" 
                                 allowfullscreen="" 
                                 loading="lazy" 
+                                sandbox="allow-scripts allow-same-origin"
                                 referrerpolicy="no-referrer-when-downgrade">
                             </iframe>
                         </div>
@@ -499,7 +284,6 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
         </section>
     </main>
@@ -529,12 +313,17 @@
                 });
             });
 
-            // LÓGICA DE ENVÍO DE FORMULARIO A GOOGLE SHEETS
-            const form = document.querySelector('.form-card form');
+            const form = document.getElementById('contactForm');
             const btnSubmit = form.querySelector('button[type="submit"]');
 
             form.addEventListener('submit', e => {
                 e.preventDefault();
+                
+                // Si el campo trampa (honeypot) fue llenado, es un bot de SPAM.
+                if (form.website_hp && form.website_hp.value !== "") {
+                    return false;
+                }
+
                 btnSubmit.disabled = true;
                 btnSubmit.innerText = 'Enviando...';
 
@@ -542,12 +331,11 @@
                     .then(response => {
                         alert('¡Gracias! Tu información ha sido enviada con éxito.');
                         form.reset();
-                        btnSubmit.disabled = false;
-                        btnSubmit.innerText = 'Enviar Información';
                     })
                     .catch(error => {
                         alert('Ocurrió un error al enviar el formulario.');
-                        console.error('Error!', error.message);
+                    })
+                    .finally(() => {
                         btnSubmit.disabled = false;
                         btnSubmit.innerText = 'Enviar Información';
                     });

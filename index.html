@@ -456,16 +456,16 @@
                     <br>
                     <form>
                         <div class="campo">
-                            <input type="text" placeholder="Nombre completo" required>
+                            <input type="text" name="nombre" placeholder="Nombre completo" required>
                         </div>
                         <div class="campo">
-                            <input type="email" placeholder="Correo electrónico" required>
+                            <input type="email" name="correo" placeholder="Correo electrónico" required>
                         </div>
                         <div class="campo">
-                            <input type="tel" placeholder="Teléfono de contacto" required>
+                            <input type="tel" name="telefono" placeholder="Teléfono de contacto" required>
                         </div>
                         <div class="campo">
-                            <input type="text" placeholder="Asunto / Servicio de interés" required>
+                            <input type="text" name="asunto" placeholder="Asunto / Servicio de interés" required>
                         </div>
                         <button type="submit">Enviar Información</button>
                     </form>
@@ -509,8 +509,7 @@
     </footer>
 
     <script>
-        // PEGA TU URL DE GOOGLE APPS SCRIPT AQUÍ ABAJO (dentro de las comillas):
-        const scriptURL = https://script.google.com/macros/s/AKfycbyX1iAG1v0z1FZ6s20xh6zAPoRoFSRCdsUm-Jlk1RzU-6ssrL7mOHbA3R0JGfl-IxBCmw/exec;
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyX1iAG1v0z1FZ6s20xh6zAPoRoFSRCdsUm-Jlk1RzU-6ssrL7mOHbA3R0JGfl-IxBCmw/exec';
 
         window.addEventListener('DOMContentLoaded', () => {
             if (window.lucide) {

@@ -56,7 +56,7 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(5, 13, 26, 0.9);
+            background: rgba(5, 13, 26, 0.95);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(212, 175, 55, 0.15);
         }
@@ -103,6 +103,15 @@
         .brand-text { display: flex; flex-direction: column; }
         .brand-title { font-size: 13px; font-weight: 700; color: #fff; letter-spacing: 1px; }
         .brand-sub { font-size: 9px; color: var(--color-accent-gold); letter-spacing: 1.5px; }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--color-accent-gold);
+            cursor: pointer;
+            padding: 4px;
+        }
 
         .nav-menu { display: flex; list-style: none; gap: 28px; }
         .nav-menu a {
@@ -168,6 +177,7 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
             font-weight: 600;
+            display: inline-block;
         }
         .hero h1 {
             font-size: 44px;
@@ -191,6 +201,7 @@
             font-weight: 700;
             text-decoration: none;
             box-shadow: 0 10px 25px rgba(212, 175, 55, 0.25);
+            text-align: center;
         }
         .btn-secondary {
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -199,6 +210,7 @@
             border-radius: 10px;
             font-weight: 600;
             text-decoration: none;
+            text-align: center;
         }
 
         /* CARDS & GRID */
@@ -276,21 +288,54 @@
             text-align: center;
         }
         .gold-text { color: var(--color-accent-gold); }
-        .correo-enlace { color: var(--color-accent-gold); text-decoration: none; font-weight: 600; }
+        .correo-enlace { color: var(--color-accent-gold); text-decoration: none; font-weight: 600; word-break: break-all; }
 
         footer { text-align: center; padding: 40px 0; border-top: 1px solid rgba(255, 255, 255, 0.05); color: var(--color-text-muted); font-size: 13px; }
 
-        /* ANIMACIONES CORREGIDAS (Visibles por defecto) */
         .animar {
             opacity: 1;
             transform: translateY(0);
             transition: all 0.8s ease-out;
         }
 
+        /* REGLAS RESPONSIVAS PARA MÓVILES */
         @media (max-width: 900px) {
             .grid-2, .services-grid { grid-template-columns: 1fr; }
-            .nav-menu { display: none; }
-            .hero h1 { font-size: 32px; }
+            .hero { padding: 140px 16px 60px; }
+            .hero h1 { font-size: 30px; }
+            .hero p { font-size: 16px; }
+            .hero-btns { flex-direction: column; width: 100%; max-width: 320px; margin: 0 auto; }
+            .btn-primary, .btn-secondary { width: 100%; }
+            .section { padding: 60px 0; }
+            .glass-card { padding: 24px; }
+            .location-container { margin-top: 24px; }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .nav-contact { display: none; }
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #050d1a;
+                flex-direction: column;
+                padding: 20px 24px;
+                gap: 16px;
+                border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            }
+            .nav-menu.active { display: flex; }
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                background: transparent;
+                border: none;
+                padding-left: 15px;
+            }
         }
     </style>
 </head>
@@ -311,7 +356,11 @@
                 </div>
             </a>
 
-            <ul class="nav-menu">
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menú">
+                <i data-lucide="menu"></i>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="#quienes-somos">¿Quiénes Somos?</a></li>
                 <li><a href="#mision-vision">Misión y Visión</a></li>
                 <li class="dropdown">
@@ -339,7 +388,7 @@
         <div class="hero-content animar">
             <span class="badge">Especialistas Contables & Fiscales</span>
             <h1>Soluciones Contables y Fiscales</h1>
-            <p>Impulsamos el crecimiento, el implemento de organización fiscal y financiera de tu empresa con estrategias solidas, precisas y personalizadas.</p>
+            <p>Impulsamos el crecimiento, el implemento de organización fiscal y financiera de tu empresa con estrategias sólidas, precisas y personalizadas.</p>
             <div class="hero-btns">
                 <a href="#contacto" class="btn-primary">Solicitar Consulta Inicial</a>
                 <a href="#servicios" class="btn-secondary">Conocer Servicios</a>
@@ -364,7 +413,7 @@
                     <hr class="divider">
                     <div>
                         <h3><i data-lucide="eye"></i> Nuestra Visión</h3>
-                        <p>Ser el despacho contable y fiscal referente en el país por nuestra precisión estratégica, innovación tecnológica y excelencia en atención, siempre contando con los mejores recursos tecnologicos para ofrecer a nuestros prospectos y clientes la atencion más optimizada posible.</p>
+                        <p>Ser el despacho contable y fiscal referente en el país por nuestra precisión estratégica, innovación tecnológica y excelencia en atención, siempre contando con los mejores recursos tecnológicos para ofrecer a nuestros prospectos y clientes la atención más optimizada posible.</p>
                     </div>
                 </div>
             </div>
@@ -393,7 +442,7 @@
                 <div id="sistema" class="glass-card service-card">
                     <div class="service-icon"><i data-lucide="cpu"></i></div>
                     <h3>Sistema de Asesorías</h3>
-                    <p>Contamos con un sistema de asesorias contables y fiscales a través de Zoom o Google Calendar en dado caso de que la misma asesoría sea en linea y de manera presencial en nuestra oficina. </p>
+                    <p>Contamos con un sistema de asesorías contables y fiscales a través de Zoom o Google Calendar en dado caso de que la misma asesoría sea en línea y de manera presencial en nuestra oficina.</p>
                 </div>
             </div>
         </section>
@@ -422,34 +471,34 @@
                     </form>
                 </div>
                 <!-- UBICACIÓN & SOPORTE -->
-<div id="ubicacion" class="location-container animar">
-    <div class="glass-card">
-        <h3><i data-lucide="map-pin"></i> Ubicación del Despacho</h3>
-        <p>Nuestra oficina central atiende corporativos en toda la República Mexicana.</p>
-        <div class="map-placeholder" style="padding: 0; overflow: hidden; height: 250px;">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.1444654767115!2d-103.3780707!3d20.6730259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428af3b84dee92f%3A0x7181a85556259260!2sRed%20Interempresarial!5e0!3m2!1ses!2smx!4v1710000000000!5m2!1ses!2smx" 
-                width="100%" 
-                height="100%" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-        </div>
-    </div>
+                <div id="ubicacion" class="location-container animar">
+                    <div class="glass-card">
+                        <h3><i data-lucide="map-pin"></i> Ubicación del Despacho</h3>
+                        <p>Nuestra oficina central atiende corporativos en toda la República Mexicana.</p>
+                        <div class="map-placeholder" style="padding: 0; overflow: hidden; height: 250px;">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.1444654767115!2d-103.3780707!3d20.6730259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428af3b84dee92f%3A0x7181a85556259260!2sRed%20Interempresarial!5e0!3m2!1ses!2smx!4v1710000000000!5m2!1ses!2smx" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
 
-    <div class="soporte-card">
-        <div class="soporte-contenido">
-            <i data-lucide="headphones" class="gold-text"></i>
-            <h3>¿Necesitas más ayuda?</h3>
-            <p>Si requieres asistencia personalizada o resolver dudas específicas de tu empresa, escríbenos a:</p>
-            <a href="mailto:contacto@redinterempresarial.com" class="correo-enlace">
-                contacto@redinterempresarial.com
-            </a>
-        </div>
-    </div>
-</div>
+                    <div class="soporte-card">
+                        <div class="soporte-contenido">
+                            <i data-lucide="headphones" class="gold-text"></i>
+                            <h3>¿Necesitas más ayuda?</h3>
+                            <p>Si requieres asistencia personalizada o resolver dudas específicas de tu empresa, escríbenos a:</p>
+                            <a href="mailto:contacto@redinterempresarial.com" class="correo-enlace">
+                                contacto@redinterempresarial.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 
             </div>
         </section>
@@ -464,6 +513,19 @@
             if (window.lucide) {
                 lucide.createIcons();
             }
+
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                });
+            });
         });
     </script>
 </body>
